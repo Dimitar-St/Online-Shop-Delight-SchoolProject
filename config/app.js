@@ -15,4 +15,4 @@ module.exports = function() {
     require('../routers/routes-loader.js')(app);
 
     return app;
-}
+};

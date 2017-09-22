@@ -1,8 +1,8 @@
 doctype html
 html(lang='en')
   head
-   link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css')
-   link(rel='stylesheet', href='./public/style.css')
+   link(rel='stylesheet', href='./libs/materialize-css/dist/css/materialize.min.css')
+   link(rel='stylesheet', href='./public/stlye/style.css')
   body
     nav(class="#01579b light-blue darken-4")
       .nav-wrapper
@@ -11,10 +11,10 @@ html(lang='en')
            | DELIGHT
         ul#nav-mobile.right.hide-on-med-and-down
           li
-            a(href='#' class='btn btn-default') Login
+            a.btn(href='#') Log in
           li
-            a(href='#' class='btn btn-default') Register
+            a.btn(href='#') Register
     block content
 
-    script(src='https://code.jquery.com/jquery-3.2.1.min.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js')  
+    script(src='./libs/jquery/dist/jquery .min.js')
+    script(src='./libs/materialize-css/dist/js/materialize.min.js')  
