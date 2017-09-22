@@ -1,0 +1,31 @@
+{
+  "name": "online-shop-delight-schoolproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PowerfullChild/Online-Shop-Delight-SchoolProject.git"
+  },
+  "author": "Dimitar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PowerfullChild/Online-Shop-Delight-SchoolProject/issues"
+  },
+  "homepage": "https://github.com/PowerfullChild/Online-Shop-Delight-SchoolProject#readme",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "bootstrap": "^3.3.7",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^1.3.1",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "mongodb": "^2.2.31",
+    "passport": "^0.4.0",
+    "pug": "^2.0.0-rc.4"
+  }
+}
