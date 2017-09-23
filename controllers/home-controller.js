@@ -1,5 +1,5 @@
 module.exports = {
-    loadLoginPage(req, res) {
+    loadHomePage(req, res) {
         res.render('home.pug');
     }
 };

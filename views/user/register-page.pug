@@ -1,0 +1,46 @@
+extends ../shared/_layout
+
+block content
+ .container
+  .row.main
+    .panel-heading
+      .panel-title.text-center
+        h3.title(style="margin-left: 450px;") Sign Up
+    if errors
+      .alert.alert-danger.alert-dismissable
+        a.close(href='#', data-dismiss='alert', aria-label='close') ×
+        strong Warning!
+        span= " " + errors.msg 
+    .main-login.main-center
+      form#signup.form-horizontal(method='post', action='/signup')
+        .form-group
+          label.cols-sm-2.control-label(for='name') First Name, Second Name
+          .cols-sm-10
+            input#name.form-control(type='text', name='name', autofocus)
+        .form-group
+          label.cols-sm-2.control-label(for='email') * Email
+          .cols-sm-10
+              input#email.form-control(type='text', name='email', required)
+              .status#email-status
+        .form-group
+          label.cols-sm-2.control-label(for='username') * Username
+          .cols-sm-10
+            input#username.form-control.invalid(type='text', name='username', placeholder="minimum 6 letters", required)
+            .status#username-status
+        .form-group
+          label.cols-sm-2.control-label(for='password') * Password
+          .cols-sm-10
+             input#password.form-control(type='password', name='password', minlength="4", maxlength="16", required)
+        .form-group
+          label.cols-sm-2.control-label(for='confirm') * Confirm Password
+          .cols-sm-10
+            input#confirm.form-control.invalid(type='password', name='confirm', placeholder="Enter again to validate", required)
+            .status#confirm-status
+        .form-group
+          label.cols-sm-2.control-label(for='confirm') URL profile picture
+          .cols-sm-10
+            input#confirm.form-control(type='password', name='urlProfilePicture')
+            .status.confirm-status
+        .form-group
+          a.btn.btn-cancel(href='/') Cancel 
+          button.btn.btn-submit(style="margin-left: 10px;" type="submit") Submit
