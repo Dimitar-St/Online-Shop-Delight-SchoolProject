@@ -2,5 +2,6 @@ const authenticationController = require('../controllers/authentication-controll
 
 module.exports = function(router) {
     router.get('/login', authenticationController.loadLoginPage)
-          .get('/register', authenticationController.loadRegisterPage);
+          .get('/register', authenticationController.loadRegisterPage)
+          .post('/register', authenticationController.register);
 };
