@@ -1,28 +1,36 @@
-const mongoClient = require('./database.js').init();
+const User = require('../models/user-model')();
 
 class UserService {
-    constructor(database) {
-        this.mongoClient = mongoClient;
+    constructor(model) {
+        this.User = model;
     }
 
     createUser(username, email, password, profilePic) {
-       return this.mongoClient
-                  .then((db) => {
-                    db.collection('users')
-                      .save({
-                         username: username,
-                         email: email,
-                         password: password,
-                         profilePic: profilePic,
-                         boughtProducts: [],
-                         moneyInTheCreditCard: 0,
-                         shoppingCartProducts: [],
-                         isAdmin: false
-                      });
-                  });
+        let newUser = new this.User({
+            username: username,
+            email: email,
+            password: password,
+            profilePic: profilePic,
+            role: 'user',
+            boughtProducts: [],
+            moneyInTheCreditCard: 0,
+            shoppingCartProducts: []
+         });
+
+        return Promise.resolve(newUser.save());
+    }
+
+    findById(id) {
+       /* const searchedUserId = new ObjectID(id);
+
+        mongoClient.then((db) => {
+            db.collection('users')
+              .findOne({ _id: searchedUserId})
+              .then((user) => {
+                return user;
+              });
+        });*/
     }
 }
 
-const userService = new UserService(mongoClient);
-
-module.exports = userService;
+module.exports = (User) => { return new UserService(User) };

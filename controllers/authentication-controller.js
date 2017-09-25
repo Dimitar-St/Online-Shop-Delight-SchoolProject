@@ -1,4 +1,4 @@
-const userService = require('../services/user-service');
+const userService = require('../services/service-loader')().userService;
 
 module.exports = {
     loadLoginPage(req, res) {
@@ -18,5 +18,9 @@ module.exports = {
         userService.createUser(username, email, password, profilePicture);
 
         res.redirect('/login');
+    },
+
+    login(req, res) {
+
     }
 };
