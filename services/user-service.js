@@ -1,5 +1,3 @@
-const User = require('../models/user-model')();
-
 class UserService {
     constructor(model) {
         this.User = model;
@@ -17,7 +15,10 @@ class UserService {
             shoppingCartProducts: []
          });
 
-        return Promise.resolve(newUser.save());
+        let promise = newUser.save().then(err => {
+            if(err) console.log(err);
+        });
+        return promise;
     }
 
     findById(id) {
@@ -33,4 +34,6 @@ class UserService {
     }
 }
 
-module.exports = (User) => { return new UserService(User) };
+module.exports = (User) => { 
+    return new UserService(User)
+};

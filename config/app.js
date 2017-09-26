@@ -24,6 +24,8 @@ module.exports = function() {
         saveUninitialized: false,
     }));
 
+    require('./passport/passport.js')(app);
+
     require('../routers/routes-loader.js')(app);
 
     return app;

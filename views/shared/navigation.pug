@@ -1,0 +1,23 @@
+mixin nav()
+    nav(class="#01579b light-blue darken-4")
+          .nav-wrapper
+            a.brand-logo(href='#')
+              strong
+               | DELIGHT
+            if isAuthenticated
+                a.btn.dropdown-button.right(href='#', data-activates='dropdown')
+                    = user.username
+                    i.mdi-navigation-arrow-drop-down.right
+                ul#dropdown.dropdown-content.right
+                    li
+                      a(href='/' + user.username + '/profile') Profile
+                    li.divider
+                    li
+                      a(href='#')
+                        | Log out
+            else
+              ul#nav-mobile.right.hide-on-med-and-down
+                  li
+                    a.btn(href='/login') Log in
+                  li
+                    a.btn(href='/register') Register

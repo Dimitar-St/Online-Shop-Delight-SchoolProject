@@ -1,20 +1,15 @@
+include navigation
+
 doctype html
 html(lang='en')
   head
-   link(rel='stylesheet', href='./libs/materialize-css/dist/css/materialize.min.css')
-   link(rel='stylesheet', href='./public/stlye/style.css')
+   link(rel='stylesheet', href='./libs/materialize-css/dist/css/materialize.css')
+   link(rel='stylesheet', href='./public/style/style.css')
   body
-    nav(class="#01579b light-blue darken-4")
-      .nav-wrapper
-        a.brand-logo(href='#')
-          strong
-           | DELIGHT
-        ul#nav-mobile.right.hide-on-med-and-down
-          li
-            a.btn(href='/login') Log in
-          li
-            a.btn(href='/register') Register
+    +nav()
+
     block content
 
-    script(src='./libs/jquery/dist/jquery .min.js')
-    script(src='./libs/materialize-css/dist/js/materialize.min.js')  
+    script(src='./libs/jquery/dist/jquery.min.js')
+    script(src='./libs/materialize-css/dist/js/materialize.js')
+    script(src='./public/js/event-listeners.js')  
