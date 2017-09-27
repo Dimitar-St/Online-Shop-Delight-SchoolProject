@@ -11,4 +11,13 @@ $( document ).ready(function() {
         stopPropagation: false // Stops event propagation
       }
     );
+
+    if ($('.error-message')) {
+        const message = $('.error-message').text();
+        Materialize.toast(message, 2000, 'red');
+    }
+    if ($('.success-message')) {
+        const message = $('.success-message').text();
+        Materialize.toast(message, 2000, 'green');
+    }
 });

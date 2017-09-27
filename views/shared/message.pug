@@ -1,0 +1,9 @@
+mixin message()
+    if typeof message !== 'undefined'
+        .message.hidden
+            if message.success
+                p.success-message
+                    = message.success
+            if message.error 
+                p.error-message
+                    = message.error

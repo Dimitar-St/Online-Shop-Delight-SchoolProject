@@ -6,6 +6,7 @@ module.exports = function() {
           path = require('path'),
           libsPath = path.join(__dirname, '../node_modules'),
           publicPath = path.join(__dirname, '../public'),
+          flash = require('connect-flash');
           port = 8080;
     
     app.set('view engine', 'pug');
@@ -23,6 +24,8 @@ module.exports = function() {
         resave: true,
         saveUninitialized: false,
     }));
+
+    app.use(flash());
 
     require('./passport/passport.js')(app);
 

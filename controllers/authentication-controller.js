@@ -22,6 +22,15 @@ module.exports = {
     },
 
     login(req, res) {
-        console.log(req.user);
+        res.render('home-page', {
+            message: req.flash()
+        });
+    },
+
+    logout(req, res) {
+        req.logout();
+        res.redirect('/');
+
+        console.log(req.isAuthenticated());
     }
 };
