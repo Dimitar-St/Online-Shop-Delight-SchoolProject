@@ -1,5 +1,13 @@
-.brand_logo {
-    margin-left: 10px;
+/* Navigation style */
+nav {
+    height: 80px;
+    box-shadow: none;
+}
+.brand-logo>img {
+    margin-top: 10px;
+    margin-left: 30px;
+    width: auto;
+    height: 80px;
 }
 
 .dropdown-button.btn.right {
@@ -8,5 +16,44 @@
 }
 
 #dropdown.dropdown-content {
-    margin-top: 49px;
+    margin-top: 50px;
+}
+
+nav .btn {
+    background: #f1a7af;
+    color: #5b2611;
+}
+nav .btn:active {
+    background: #f1a7af;
+    color: #5b2611;
+}
+nav .btn:hover {
+    background: #f1a7af;
+    color: #5b2611;
+}
+
+nav .btn:focus {
+    background: #f1a7af;
+    color: #5b2611;
+}
+
+#dropdown>li>a {
+    color: #5b2611;
+}
+
+#main-menu a{
+    color: #5b2611;
+}
+
+#main-menu a:hover{
+    background: #f1a7af;
+}
+
+#main-menu a:focus{
+    background: #f1a7af;
+}
+
+.material-icons {
+    color: #5b2611;
+    /* background: red; */
 }
