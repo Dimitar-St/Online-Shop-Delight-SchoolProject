@@ -1,11 +1,15 @@
-const userService = require('../services/service-loader.js')().userService;
-
-module.exports = {
+class UserController {
+    constructor(userService) {
+        this.userService = userService;
+    }
+    
     loadProfilePage(req, res) {
-        console.log(req.user);
         res.render('user/profile-page', {
             isAuthenticated: req.isAuthenticated(),
-            user: req.user
+            user: req.user,
+            isAdmin: this.userService.isAdmin(req.user)
         });
     }
 }
+
+module.exports = UserController;

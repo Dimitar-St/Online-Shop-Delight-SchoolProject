@@ -1,0 +1,26 @@
+extends ../shared/_layout
+
+block content
+    table.table.table-striped
+      thead
+        tr
+          th Id
+          th Username
+          th Fullname
+          th Email
+          th Role
+      tbody
+        each user in users
+          tr
+              td 
+               = user.id 
+              td 
+               = user.username
+              td 
+               = user.profilePic
+              td 
+               = user.email
+              td 
+               = user.role
+              td
+               a.btn.btn-small Edit

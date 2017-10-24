@@ -1,11 +1,14 @@
-const authenticationController = require('../controllers/authentication-controller.js'),
+const AuthenticationController = require('../controllers/authentication-controller.js'),
+      userService = require('../services/service-loader.js')().userService,
       passport = require('passport');
 
 module.exports = function(router) {
-    router.get('/login', authenticationController.loadLoginPage)
-          .get('/register', authenticationController.loadRegisterPage)
-          .get('/logout', authenticationController.logout)
-          .post('/register', authenticationController.register)
+    let controller = new AuthenticationController(userService);
+    
+    router.get('/login', controller.loadLoginPage)
+          .get('/register', controller.loadRegisterPage)
+          .get('/logout', controller.logout)
+          .post('/register', controller.register)
           .post('/login', passport.authenticate('local', 
                                                 { 
                                                     successRedirect: '/',
@@ -13,5 +16,5 @@ module.exports = function(router) {
                                                     passReqToCallback: true,
                                                     failureFlash: true
                                                 }), 
-                                                authenticationController.login);
+                                                controller.login);
 };

@@ -6,7 +6,9 @@ module.exports = function() {
           path = require('path'),
           libsPath = path.join(__dirname, '../node_modules'),
           publicPath = path.join(__dirname, '../public'),
-          flash = require('connect-flash');
+          flash = require('connect-flash'),
+          { Router } = require('express'),
+          AllRoutes = require('../routers/routes-loader.js'),
           port = 8080;
     
     app.set('view engine', 'pug');
@@ -28,8 +30,10 @@ module.exports = function() {
     app.use(flash());
 
     require('./passport/passport.js')(app);
-
-    require('../routers/routes-loader.js')(app);
+    
+    let router = new AllRoutes(app, new Router());
+    
+    router.load();
 
     return app;
 };

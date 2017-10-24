@@ -19,6 +19,9 @@ mixin nav()
                       = user.username
                       i.material-icons.right arrow_drop_down
                   ul#dropdown.dropdown-content.right
+                      if isAdmin
+                        li 
+                          a(href='/admin/edit/users') Manage Users
                       li
                         a(href='/' + user.username + '/profile') Profile
                       li.divider
