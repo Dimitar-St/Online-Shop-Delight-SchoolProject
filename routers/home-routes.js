@@ -1,9 +1,3 @@
-//const HomeController = require('../controllers/home-controller.js');
-//
-//module.exports = function(router) {
-//    router.get('/', homeController.loadHomePage);
-//};
-
 class HomeRoutes {
     constructor(router, controller) 
     {
@@ -25,7 +19,8 @@ class HomeRoutes {
     
     loadRoutes() {
         this.router
-            .get('/', this.controller.loadHomePage);
+            .get('/', (req, res) => this.controller.loadHomePage(req, res))
+            .get('/for-us', (req, res) => this.controller.loadForUsPage(req, res));
     }
 }
 

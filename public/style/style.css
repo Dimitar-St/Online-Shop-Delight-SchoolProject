@@ -57,3 +57,21 @@ nav .btn:focus {
     color: #5b2611;
     /* background: red; */
 }
+
+.profile-info {
+    margin-left: 30%;
+}
+
+.update-profile {
+    margin-top: 50px;
+    height: 400px;
+    width: 500px;
+}
+
+.manage-users {
+    margin-top: 100px;
+    width: 1000px;
+    background-color: #e5e7ea;
+    border-radius: 5px;
+}
+

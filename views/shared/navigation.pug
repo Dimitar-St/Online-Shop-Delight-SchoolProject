@@ -8,12 +8,15 @@ mixin nav()
                 a(href='#')
                   |МЕНЮ
               li
-                a(href='#')
+                a(href='/for-us')
                   |ЗА НАС
               li
                 a(href='#')
                   |КОНТАКТИ
               if isAuthenticated
+                li
+                  a(href='#')
+                    | ПОРЪЧАЙ
                 li
                   a.btn.dropdown-button.right(href='#', data-activates='dropdown')
                       = user.username

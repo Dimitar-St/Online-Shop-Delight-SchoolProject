@@ -12,5 +12,7 @@ module.exports = function(router) {
     
     let controller = new UserController(userService);
 
-    router.get('/:username/profile', isAuthenticated, (req, res) => controller.loadProfilePage(req, res));
+    router.get('/:username/profile', isAuthenticated, (req, res) => controller.loadProfilePage(req, res))
+          .get('/order', isAuthenticated, (req, res) => controller.loadOrderPage(req, res))
+          .get('/:username/update-profile', isAuthenticated, (req, res) => controller.loadUpdateProfilePage(req, res));
 };
