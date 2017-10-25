@@ -1,5 +1,5 @@
 const AdminController = require('../controllers/admin-controller.js'),
-      userService = require('../services/service-loader.js')().userService;
+      userService = require('../services/service-loader.js').getUserService();
 
 module.exports = function(router) {
     function isAdmin(req, res, next) {

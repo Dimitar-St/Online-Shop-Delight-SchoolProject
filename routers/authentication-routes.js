@@ -1,5 +1,5 @@
 const AuthenticationController = require('../controllers/authentication-controller.js'),
-      userService = require('../services/service-loader.js')().userService,
+      userService = require('../services/service-loader.js').getUserService();
       passport = require('passport');
 
 module.exports = function(router) {

@@ -1,5 +1,5 @@
 const UserController = require('../controllers/user-controller.js'),
-      userService = require('../services/service-loader.js')().userService;
+      userService = require('../services/service-loader.js').getUserService();
 
 module.exports = function(router) {
     function isAuthenticated(req, res, next) {
@@ -12,5 +12,5 @@ module.exports = function(router) {
     
     let controller = new UserController(userService);
 
-    router.get('/:username/profile', isAuthenticated, controller.loadProfilePage);
+    router.get('/:username/profile', isAuthenticated, (req, res) => controller.loadProfilePage(req, res));
 };

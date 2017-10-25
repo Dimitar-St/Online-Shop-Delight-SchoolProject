@@ -3,12 +3,20 @@ mongoose.Promise = global.Promise;
 
 mongoose.connect('mongodb://localhost:27017/Shop-Delight');
 
-module.exports = function() {
-    let User = require('../models/user-model')();
+const User = require('../models/user-model')();
 
-    const userService = require('./user-service')(User);
-
-    return {
-        userService
+class ServiceLoader {
+    constructor(userModel) {
+        this.userModel = userModel;
     }
-};
+    
+    getUserService() {
+        let userService = require('./user-service')(this.userModel);
+        
+        return userService;
+    }
+}
+
+let serviceLoader = new ServiceLoader(User);
+
+module.exports = serviceLoader;
