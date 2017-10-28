@@ -1,5 +1,5 @@
 mixin username()
-    form(action='#')
+    form(method="POST", action='/' + user.username + '/update/username')
         p
-          input#email.validate(type='text')
-        .btn.btn-primary Промени
+          input#email.validate(type='text', name='username')
+        button.btn.btn-primary(type='submit') Промени

@@ -70,6 +70,18 @@ class UserService {
                                });
     }
     
+    updateUsername(id, newUsername) {
+      return this.User.find({ username: newUsername }, (err, data) => {
+          if(data.length !== 0) {
+             return;
+          } else {
+             return this.User.update({ _id: id }, { username: newUsername }, function(err) {
+                console.log(err); 
+             });
+          }
+      });
+    }
+    
     isAdmin(user) {
         if(user.role === 'admin') {
            return true;

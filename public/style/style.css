@@ -58,6 +58,10 @@ nav .btn:focus {
     /* background: red; */
 }
 
+.profile {
+   background-color: #f1a7af
+}
+
 .profile-info {
     margin-left: 30%;
 }
@@ -112,13 +116,22 @@ nav .btn:focus {
     margin-right: 10%;
 }
 
-img.circle.responsive-img {
+.profile-image {
     width: 200px;
     height: 200px;
-    display: inline-block;
 }
 
+.for-us {
+    width: 1000px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-left: 22%;
+}
 
+.logo-image {
+    margin-top: 100px;
+    margin-left: 32%;
+}
 
 
 

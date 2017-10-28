@@ -39,6 +39,29 @@ class UserController {
         
         res.redirect('/' + req.user.username + '/profile');
     }
+    
+    updateUsername(req, res) {
+        let id = req.user.id,
+            newUsername = req.body.username,
+            message = { error: null,  success: null };
+        
+        this.userService.updateUsername(id, newUsername)
+                        .then(data => {
+                            if(data.length !== 0) {
+                                message.error = 'Потребителското име което сте вече съществува';
+                            } else {
+                                message.success = 'Успешно променихте своето потребутелско име';
+                                req.user.username = newUsername;
+                            }
+            
+                            res.render('user/user-settings-page', {
+                                             isAuthenticated: req.isAuthenticated(),
+                                             user: req.user,
+                                             isAdmin: this.userService.isAdmin(req.user),
+                                             message: message
+                                         });
+                        });
+    }
 }
 
 module.exports = UserController;

@@ -16,5 +16,6 @@ module.exports = function(router) {
           .get('/order', isAuthenticated, (req, res) => controller.loadOrderPage(req, res))
           .get('/:username/settings', isAuthenticated, (req, res) => controller.loadSettingsPage(req, res))
           .post('/:username/update/email', isAuthenticated, (req, res) => controller.updateEmail(req, res))
-          .post('/:username/update/profileImage', isAuthenticated, (req, res) => controller.updateProfileImage(req, res));
+          .post('/:username/update/profileImage', isAuthenticated, (req, res) => controller.updateProfileImage(req, res))
+          .post('/:username/update/username', isAuthenticated, (req, res) => controller.updateUsername(req, res));
 };

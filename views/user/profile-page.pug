@@ -1,20 +1,21 @@
 extends ../shared/_layout
 
 block content
-      .row.profile-info
-        .col.s12.m7
-          h2.header 
-            = user.username
-          img.circle.responsive-img(src = user.profilePic + '')
-          .card.horizontal()
-            .card-stacked
-              .card-content
-                p Name : 
-                  strong
-                   = user.username
-                p Email : 
-                  strong
-                   = user.email
-                p Money : 
-                  strong
-                   = user.moneyInTheCreditCard
+      .row.profile
+        .profile-info
+          .col.s12.m7
+            h2.header 
+              = user.username
+            img.circle.responsive-img.profile-image(src = user.profilePic + '')
+            .card.horizontal()
+              .card-stacked
+                .card-content
+                  p Name : 
+                    strong
+                     = user.username
+                  p Email : 
+                    strong
+                     = user.email
+                  p Money : 
+                    strong
+                     = user.moneyInTheCreditCard

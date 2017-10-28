@@ -1,6 +1,6 @@
 mixin message()
     if typeof message !== 'undefined'
-        .message.hidden
+        .message.hidden(style='display:none;')
             if message.success
                 p.success-message
                     = message.success

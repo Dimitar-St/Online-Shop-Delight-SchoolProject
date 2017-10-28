@@ -3,6 +3,7 @@ include settings/email-mixin
 include settings/password-mixin
 include settings/username-mixin
 include settings/profile-image-mixin
+include ../shared/message.pug
 
 
 block content
@@ -12,32 +13,34 @@ block content
          b
           = user.username + ','
           h4 ти си шефа на твоя акаунт
+          
+      
       ul.collapsible.user-settings-table(data-collapsible='accordion')
         li
           .collapsible-header
             div
                 b Профилна снимка
-                p Промени своята профилна снимка
+                p(style='margin-left: 100px') Промени своята профилна снимка
           .collapsible-body
             +profileImage()
         li
           .collapsible-header
             div
                 b Имайл
-                p Добави или махни емайл адреса в твоя акаунт
+                p(style='margin-left: 180px') Добави или махни емайл адреса в твоя акаунт
           .collapsible-body
             +email()
         li
           .collapsible-header
             div
                 b Парола
-                p Избери уникална парола, за да предпазиш твоя акаунт
+                p(style='margin-left: 177px') Избери уникална парола, за да предпазиш твоя акаунт
           .collapsible-body
             +password()
         li
           .collapsible-header
             div
                 b Име
-                p Промени твоето име
+                p(style='margin-left: 200px') Промени твоето име
           .collapsible-body
             +username()
