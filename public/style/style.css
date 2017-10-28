@@ -78,3 +78,34 @@ nav .btn:focus {
 .update-btn {
     margin-left: 38%;
 }
+
+.user-settings-table {
+    width: 50%;
+    margin-top: 5%;
+    margin-left: 25%;
+}
+
+.view-settings {
+    height: 150px;
+    background-color: #f1a7af;
+    color: white;
+    text-align: center;
+}
+
+.view-settings h3 {
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

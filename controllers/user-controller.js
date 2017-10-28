@@ -11,8 +11,8 @@ class UserController {
         });
     }
     
-    loadUpdateProfilePage(req, res) {
-        res.render('user/update-profile-page', {
+    loadSettingsPage(req, res) {
+        res.render('user/user-settings-page', {
             isAuthenticated: req.isAuthenticated(),
             user: req.user,
             isAdmin: this.userService.isAdmin(req.user)

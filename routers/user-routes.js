@@ -14,5 +14,5 @@ module.exports = function(router) {
 
     router.get('/:username/profile', isAuthenticated, (req, res) => controller.loadProfilePage(req, res))
           .get('/order', isAuthenticated, (req, res) => controller.loadOrderPage(req, res))
-          .get('/:username/update-profile', isAuthenticated, (req, res) => controller.loadUpdateProfilePage(req, res));
+          .get('/:username/settings', isAuthenticated, (req, res) => controller.loadSettingsPage(req, res));
 };
