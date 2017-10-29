@@ -30,6 +30,15 @@ class UserController {
         
         res.redirect('/' + req.user.username + '/profile');
     }
+    
+    updateProfileImage(req, res) {
+        let id = req.user.id,
+            newImage = req.body.newProfileImage;
+        
+        this.userService.updateProfileImage(id, newImage);
+        
+        res.redirect('/' + req.user.username + '/profile');
+    }
 }
 
 module.exports = UserController;

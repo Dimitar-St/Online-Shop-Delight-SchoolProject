@@ -7,10 +7,11 @@ include settings/profile-image-mixin
 
 block content
       div.view-settings
+        img.circle.responsive-img(src = user.profilePic)
         h3
          b
           = user.username + ','
-        h4 ти си шефа на твоя акаунт
+          h4 ти си шефа на твоя акаунт
       ul.collapsible.user-settings-table(data-collapsible='accordion')
         li
           .collapsible-header

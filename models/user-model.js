@@ -18,6 +18,7 @@ var Schema = mongoose.Schema;
             min: 6,
             max: 16
         },
+        profilePic: String,
         email: String,
         role: String,
         boughtProducts: Array,

@@ -51,8 +51,18 @@ class UserService {
     }
     
     updateEmail(id, newEmail) {
-      return  this.User.update({_id: id}, 
+      return  this.User.update({ _id: id }, 
                                { email: newEmail }, 
+                               (err) => {
+                                   if(err) {
+                                      return err;
+                                   }
+                               });
+    }
+    
+    updateProfileImage(id, newImage) {
+      return  this.User.update({ _id: id }, 
+                               { profilePic: newImage }, 
                                (err) => {
                                    if(err) {
                                       return err;

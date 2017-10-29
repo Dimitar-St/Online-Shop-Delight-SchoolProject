@@ -1,5 +1,5 @@
 mixin email()
-    form(method="POST", action='/' + user.username + '/change/email')
+    form(method="POST", action='/' + user.username + '/update/email')
         p
           input#email.validate(type='email' name='newEmail')
         button.btn.btn-primary(type='submit') Промени

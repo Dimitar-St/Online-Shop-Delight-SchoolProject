@@ -92,16 +92,29 @@ nav .btn:focus {
     text-align: center;
 }
 
-.view-settings h3 {
-    
-}
-
 .collapsible-header b {
     display: inline-block;
 }
 
 .collapsible-header p {
     margin-left: 75px;
+    display: inline-block;
+}
+
+.view-settings img {
+    width: 100px; height: 100px; 
+    display: inline-block; 
+    margin-right: 10%;
+}
+
+.view-settings h3 {
+    display: inline-block; 
+    margin-right: 10%;
+}
+
+img.circle.responsive-img {
+    width: 200px;
+    height: 200px;
     display: inline-block;
 }
 

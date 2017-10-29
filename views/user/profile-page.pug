@@ -5,9 +5,8 @@ block content
         .col.s12.m7
           h2.header 
             = user.username
-          .card.horizontal
-            .card-image
-              img(src=user.profilePic)
+          img.circle.responsive-img(src = user.profilePic + '')
+          .card.horizontal()
             .card-stacked
               .card-content
                 p Name : 

@@ -5,10 +5,10 @@ const AuthenticationController = require('../controllers/authentication-controll
 module.exports = function(router) {
     let controller = new AuthenticationController(userService);
     
-    router.get('/login', controller.loadLoginPage)
-          .get('/register', controller.loadRegisterPage)
-          .get('/logout', controller.logout)
-          .post('/register', controller.register)
+    router.get('/login', (req, res) => controller.loadLoginPage(req, res))
+          .get('/register', (req, res) => controller.loadRegisterPage(req, res))
+          .get('/logout', (req, res) => controller.logout(req, res))
+          .post('/register', (req, res) => controller.register(req, res))
           .post('/login', passport.authenticate('local', 
                                                 { 
                                                     successRedirect: '/',
