@@ -50,6 +50,16 @@ class UserService {
         });
     }
     
+    updateEmail(id, newEmail) {
+      return  this.User.update({_id: id}, 
+                               { email: newEmail }, 
+                               (err) => {
+                                   if(err) {
+                                      return err;
+                                   }
+                               });
+    }
+    
     isAdmin(user) {
         if(user.role === 'admin') {
            return true;

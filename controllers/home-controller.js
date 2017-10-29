@@ -15,6 +15,7 @@ class HomeController {
             user: req.user,
             isAdmin: this.isAdmin(req)
         });
+        
     }
     
     isAdmin(req) {

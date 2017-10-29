@@ -1,0 +1,5 @@
+mixin profileImage()
+    form(method="POST", action='/' + user.username + '/change/profileImage')
+        p
+          input#email.validate(type='text' name='newProfileImage')
+        button.btn.btn-primary(type='submit') Промени

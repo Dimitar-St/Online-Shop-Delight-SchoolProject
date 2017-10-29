@@ -21,6 +21,15 @@ class UserController {
     
     loadOrderPage(req, res) {
     }
+    
+    updateEmail(req, res) {
+        let id = req.user.id,
+            newEmail = req.body.newEmail;
+        
+        this.userService.updateEmail(id, newEmail);
+        
+        res.redirect('/' + req.user.username + '/profile');
+    }
 }
 
 module.exports = UserController;

@@ -14,5 +14,6 @@ module.exports = function(router) {
 
     router.get('/:username/profile', isAuthenticated, (req, res) => controller.loadProfilePage(req, res))
           .get('/order', isAuthenticated, (req, res) => controller.loadOrderPage(req, res))
-          .get('/:username/settings', isAuthenticated, (req, res) => controller.loadSettingsPage(req, res));
+          .get('/:username/settings', isAuthenticated, (req, res) => controller.loadSettingsPage(req, res))
+          .post('/:username/change/email', isAuthenticated, (req, res) => controller.updateEmail(req, res));
 };

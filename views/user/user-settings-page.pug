@@ -1,32 +1,42 @@
 extends ../shared/_layout
+include settings/email-mixin
+include settings/password-mixin
+include settings/username-mixin
+include settings/profile-image-mixin
+
 
 block content
       div.view-settings
         h3
          b
           = user.username + ','
-        h4 ти шефа на твоя акаунт
-            
-      table.bordered.user-settings-table
-        tbody(style="width: 500px;")
-          tr
-            td 
-              h6
-               b Емайл
-            td Добави или махни емайл адреса в товя акаунт
-            td 
-              a(href='#') Промени
-          tr
-            td 
-              h6
-               b Парало
-            td Избери уникална парола, за да предпазиш твоя акаунт
-            td 
-              a(href='#') Промени
-          tr
-            td 
-              h6
-               b Име
-            td Промени твоето име
-            td  
-              a(href='#') Промени
+        h4 ти си шефа на твоя акаунт
+      ul.collapsible.user-settings-table(data-collapsible='accordion')
+        li
+          .collapsible-header
+            div
+                b Профилна снимка
+                p Промени своята профилна снимка
+          .collapsible-body
+            +profileImage()
+        li
+          .collapsible-header
+            div
+                b Имайл
+                p Добави или махни емайл адреса в твоя акаунт
+          .collapsible-body
+            +email()
+        li
+          .collapsible-header
+            div
+                b Парола
+                p Избери уникална парола, за да предпазиш твоя акаунт
+          .collapsible-body
+            +password()
+        li
+          .collapsible-header
+            div
+                b Име
+                p Промени твоето име
+          .collapsible-body
+            +username()

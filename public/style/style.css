@@ -96,6 +96,15 @@ nav .btn:focus {
     
 }
 
+.collapsible-header b {
+    display: inline-block;
+}
+
+.collapsible-header p {
+    margin-left: 75px;
+    display: inline-block;
+}
+
 
 
 
