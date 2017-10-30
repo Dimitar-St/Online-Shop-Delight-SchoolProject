@@ -6,7 +6,7 @@ module.exports = function(router) {
        if (req.isAuthenticated()) {
          next();
        } else {
-         res.sendStatus(401);
+         res.redirect('/login');
        }
     }
     

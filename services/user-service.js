@@ -91,6 +91,4 @@ class UserService {
     }
 }
 
-module.exports = (User) => { 
-    return new UserService(User)
-};
+module.exports = UserService;
