@@ -32,5 +32,26 @@ describe('Authentication controller tests', function() {
     it('Expect AuthenticationController class to exist', function() {
         expect(AuthenticationController).to.exist;
     });
+    
+    it('Expect authentication consotroller instance to have all functions.', function() {
+        expect(controller.loadLoginPage).to.be.a('function');
+        expect(controller.loadRegisterPage).to.be.a('function');
+        expect(controller.register).to.be.a('function');
+        expect(controller.login).to.be.a('function');
+        expect(controller.logout).to.be.a('function');
+    });
+    
+    describe('Service property tests', function() {
+       it('The service property should throw error when is passed a null value.', function() {
+            expect(() => {
+                controller.service = null;
+            }).to.throw('The passed service is null');
+        }); 
         
+        it('The service property should throw error when is passed a undefined value.', function() {
+            expect(() => {
+                controller.service = undefined;
+            }).to.throw('The passed service is null');
+        }); 
+    }); 
 });
