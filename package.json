@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha ./tests/unit-tests/controllers",
-    "start": "nodemon main.js"
+    "start": "nodemon main.js",
+    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha ./tests/unit-tests/controllers/*.js"  
   },
   "repository": {
     "type": "git",

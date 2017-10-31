@@ -10,14 +10,19 @@ let expect = chai.expect;
 describe('Authentication controller tests', function() {
     let req,
         res,
-        serviceStub,
+        service,
         controller;
     
     beforeEach(function() {
-        serviceStub = sinon.createStubInstance(UserService);
+        service = {
+            createUser: () => {}
+        };
         req = {
             body: {
                 username: 'username',
+                email: 'email',
+                password: 'password',
+                urlProfilePicture: 'urlProfilePicture'
             },
             flash: () => {},
             logout: () => {}
@@ -26,7 +31,7 @@ describe('Authentication controller tests', function() {
             render: () => {},
             redirect: () => {}
         };
-        controller = new AuthenticationController(serviceStub);
+        controller = new AuthenticationController(service);
     });
     
     it('Expect AuthenticationController class to exist', function() {
@@ -42,7 +47,13 @@ describe('Authentication controller tests', function() {
     });
     
     describe('Service property tests', function() {
-       it('The service property should throw error when is passed a null value.', function() {
+        it('The service property should not throw.', function() {
+            expect(() => {
+                controller.service = service;
+            }).to.not.throw();
+        });
+        
+        it('The service property should throw error when is passed a null value.', function() {
             expect(() => {
                 controller.service = null;
             }).to.throw('The passed service is null');
@@ -54,4 +65,42 @@ describe('Authentication controller tests', function() {
             }).to.throw('The passed service is null');
         }); 
     }); 
+    
+    describe('loadLoginPage function tests', function() {
+        it('Should call res.render()', function() {
+            let resStub = sinon.stub(res, 'render');
+            
+            controller.loadLoginPage(req, res);
+            
+            sinon.assert.calledOnce(resStub);
+        });
+    });
+    
+     describe('loadRegisterPage function tests', function() {
+        it('Should call res.render()', function() {
+            let resStub = sinon.stub(res, 'render');
+            
+            controller.loadRegisterPage(req, res);
+            
+            sinon.assert.calledOnce(resStub);
+        });
+    });
+    
+    describe('register function tests', function() {
+        it('Should call this.service.createUser()', function() {
+            let createUserStub = sinon.stub(service, 'createUser');
+            
+            controller.register(req, res);
+            
+            sinon.assert.calledOnce(createUserStub);
+        });
+        
+        it('Should call res.redirect()', function() {
+            let resStub = sinon.stub(res, 'redirect');
+            
+            controller.register(req, res);
+            
+            sinon.assert.calledOnce(resStub);
+        });
+    });
 });
