@@ -103,4 +103,40 @@ describe('Authentication controller tests', function() {
             sinon.assert.calledOnce(resStub);
         });
     });
+    
+     describe('login function tests', function() {
+        it('Should call res.render()', function() {
+            let resStub = sinon.stub(res, 'render');
+            
+            controller.login(req, res);
+            
+            sinon.assert.calledOnce(resStub);
+        });
+         
+         it('Should call req.falsh()', function() {
+            let reqStub = sinon.stub(req, 'flash');
+            
+            controller.login(req, res);
+            
+            sinon.assert.calledOnce(reqStub);
+        });
+    });
+    
+    describe('logout function tests', function() {
+        it('Should call res.redirect()', function() {
+            let resStub = sinon.stub(res, 'redirect');
+            
+            controller.logout(req, res);
+            
+            sinon.assert.calledOnce(resStub);
+        });
+         
+         it('Should call req.logout()', function() {
+            let reqStub = sinon.stub(req, 'logout');
+            
+            controller.logout(req, res);
+            
+            sinon.assert.calledOnce(reqStub);
+        });
+    });
 });

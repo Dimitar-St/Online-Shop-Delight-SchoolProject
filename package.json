@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./tests/unit-tests/controllers",
+    "test": "gulp test",
     "start": "nodemon main.js",
-    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha ./tests/unit-tests/controllers/*.js"  
+    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha ./tests/unit-tests/controllers/*.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,8 @@
     "express": "^4.15.4",
     "express-session": "^1.15.5",
     "flash": "^1.1.0",
+    "gulp-istanbul": "^1.1.2",
+    "gulp-mocha": "^4.3.1",
     "jquery": "^3.2.1",
     "materialize-css": "^0.100.2",
     "mocha": "^4.0.1",
@@ -38,5 +40,8 @@
     "passport-local": "^1.0.0",
     "pug": "^2.0.0-rc.4",
     "sinon": "^4.0.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }
