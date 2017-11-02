@@ -1,6 +1,7 @@
-const gulp = require('gulp');
-const istanbul = require('gulp-istanbul');
-const mocha = require('gulp-mocha');
+const gulp = require('gulp'),
+      istanbul = require('gulp-istanbul'),
+      isparta = require('isparta'),
+      mocha = require('gulp-mocha');
 
 // To satrt gulp tasks write "gulp test" in CMD
 
@@ -16,7 +17,7 @@ gulp.task('pre-test', () => {
 //     './utils/validator.js',
     ])
     .pipe(istanbul({
-        includeUntested: true,
+        instrumenter: isparta.Instrumenter
     }))
     .pipe(istanbul.hookRequire());
 });
@@ -24,7 +25,7 @@ gulp.task('pre-test', () => {
 gulp.task('test', ['pre-test'], () => {
     return gulp.src([
 // To be included in test exxcution all files should be required in the array
-        './tests/unit-tests/controllers/**/*.js'
+        './tests/unit/controllers/**/*.js'
     ])
     .pipe(mocha())
     .pipe(istanbul.writeReports());

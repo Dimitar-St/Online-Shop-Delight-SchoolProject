@@ -38,7 +38,7 @@ describe('Authentication controller tests', function() {
         expect(AuthenticationController).to.exist;
     });
     
-    it('Expect authentication consotroller instance to have all functions.', function() {
+    it('Expect authentication controller instance to have all functions.', function() {
         expect(controller.loadLoginPage).to.be.a('function');
         expect(controller.loadRegisterPage).to.be.a('function');
         expect(controller.register).to.be.a('function');
