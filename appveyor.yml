@@ -7,7 +7,6 @@ install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
   # install modules
-  - npm install -g istanbul
   - npm install
 
 # Post-install test scripts.
@@ -16,7 +15,6 @@ test_script:
   - node --version
   - npm --version
   # run tests
-  - npm test
   - npm run cover
 
 # Don't actually build.

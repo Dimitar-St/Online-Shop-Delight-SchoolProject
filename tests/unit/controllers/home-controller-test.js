@@ -35,25 +35,44 @@ describe('Home controller tests', function() {
     });
     
     describe('isAdmin function tests', function() {
-        it('Should return true', function() {
+        it('Should return true when the user is admin.', function() {
             req.user.role = 'admin';
             
             let result = controller.isAdmin(req);
             
             expect(result).to.be.true;
         });
+        
+        it("Should return false when the user isn't admin.", function() {
+            req.user.role = 'user';
+            
+            let result = controller.isAdmin(req);
+            
+            expect(result).to.be.false;
+        });
+        
+        it('Should return false when there is no user.', function() {
+            let result = controller.isAdmin({});
+            
+            expect(result).to.be.false;
+        });
+    });
+    
+     describe('loadHomePage function tests', function() {
+        it('Should call req.render()', function() {
+           let resStub = sinon.stub(res, 'render');
+            
+           controller.loadHomePage(req, res);
+            
+           sinon.assert.calledOnce(resStub);
+        });
+         
+         it('Should call req.isAuthenticated()', function() {
+           let reqStub = sinon.stub(req, 'isAuthenticated');
+            
+           controller.loadHomePage(req, res);
+            
+           sinon.assert.calledOnce(reqStub);
+        });
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
