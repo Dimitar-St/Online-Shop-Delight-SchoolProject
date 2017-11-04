@@ -1,8 +1,12 @@
 const mocha = require('mocha'),
       chai = require('chai'),
       sinon = require('sinon'),
+      sinonChai = require('sinon-chai'),
       UserService = require('../../../services/user-service.js'),
       UserController = require('../../../controllers/user-controller.js');
+
+chai.should();
+chai.use(sinonChai);
 
 let expect = chai.expect;
 
@@ -15,13 +19,23 @@ describe('User controller tests', function() {
     beforeEach(function() {
         req = {
             isAuthenticated: () => {},
-            user: { }
+            user: {
+                id: 1,
+                username: 'username'
+            },
+            body: { 
+                newEmail: 'newEmail'
+            }
         };
         res = {
-            render: () => {}
+            render: () => {},
+            redirect: () => {}
         };
         service = {
-            isAdmin: (user) => {}
+            isAdmin: (user) => {},
+            updateEmail: (id, newEmail) => {},
+            updateProfileImage: (id, newImage) => {},
+            updateUsername: (id, newUsername) => {}
         };
         controller = new UserController(service);
     });
@@ -88,6 +102,52 @@ describe('User controller tests', function() {
             controller.loadSettingsPage(req, res);
             
             sinon.assert.calledOnce(isAdminStub);
+        });
+    });
+    
+    describe('updateEmail function tests', function() {
+        it('Should this.service.updateEmail()', function() {
+            let updateEmailStub = sinon.stub(service, 'updateEmail');
+            
+            controller.updateEmail(req, res);
+            
+            sinon.assert.calledOnce(updateEmailStub);
+        });
+        
+        it('Should res.redirect()', function() {
+            let resStub = sinon.stub(res, 'redirect');
+            
+            controller.updateEmail(req, res);
+            
+            sinon.assert.calledOnce(resStub);
+        });
+    });
+    
+     describe('updateProfileImage function tests', function() {
+        it('Should this.service.updateProfileImage()', function() {
+            let updateProfileImageStub = sinon.stub(service, 'updateProfileImage');
+            
+            controller.updateProfileImage(req, res);
+            
+            sinon.assert.calledOnce(updateProfileImageStub);
+        });
+        
+        it('Should res.redirect()', function() {
+            let resStub = sinon.stub(res, 'redirect');
+            
+            controller.updateProfileImage(req, res);
+            
+            sinon.assert.calledOnce(resStub);
+        });
+    });
+    
+    describe('updateUsername function tests', function() {
+        it('Should this.service.updateUsername()', function() {
+            let updateUsernameStub = sinon.stub(service, 'updateUsername').returns(Promise.resolve([]));
+            
+            controller.updateUsername(req, res);
+            
+            sinon.assert.calledOnce(updateUsernameStub);
         });
     });
     

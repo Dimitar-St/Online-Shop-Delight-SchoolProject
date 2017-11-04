@@ -1,13 +1,16 @@
 extends ../shared/_layout
 
 block content
+   div.view-settings
+    h3
+      b Manage Users
    .row.manage-users
-     table.table.table-striped
+     table.table.bordered
        thead
          tr
            th Id
            th Username
-           th Fullname
+           th Profile Image
            th Email
            th Role
        tbody
@@ -24,4 +27,4 @@ block content
                td 
                 = user.role
                td
-                a.btn.btn-small Edit
+                a.btn.btn-mini Edit

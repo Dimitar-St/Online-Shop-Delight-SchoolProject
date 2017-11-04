@@ -14,6 +14,7 @@ class AdminController {
                     isAdmin: this.userService.isAdmin(req.user)
                 });
             });
+        
     }
 }
 

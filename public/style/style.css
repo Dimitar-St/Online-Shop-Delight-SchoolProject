@@ -73,9 +73,9 @@ nav .btn:focus {
 }
 
 .manage-users {
-    margin-top: 100px;
+    margin-top: 50px;
+    margin-left: 160px;
     width: 1000px;
-    background-color: #e5e7ea;
     border-radius: 5px;
 }
 
