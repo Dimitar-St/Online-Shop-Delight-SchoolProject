@@ -5,6 +5,7 @@ mongoose.Promise = global.Promise;
  mongoose.connect('mongodb://localhost:27017/Shop-Delight', {
   useMongoClient: true,
 });
+
 const User = require('../models/user-model')();
 
 class ServiceLoader {

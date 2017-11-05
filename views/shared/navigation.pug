@@ -5,7 +5,7 @@ mixin nav()
               img(src="../../public/img/naslada_logo.png", alt="Delight")
             ul#main-menu.right.hide-on-med-and-down
               li
-                a(href='#')
+                a(href='/menu')
                   |МЕНЮ
               li
                 a(href='/for-us')
@@ -25,14 +25,17 @@ mixin nav()
                       if isAdmin
                         li 
                           a(href='/admin/edit/users') Manage Users
+                        li 
+                          a(href='/menu/add-product') Add Product
+                        li.divider
                       li
-                        a(href='/' + user.username + '/profile') Profile
+                        a(href='/' + user.username + '/profile') Моят Профил
                       li
-                        a(href='/' + user.username + '/settings') Settings
+                        a(href='/' + user.username + '/settings') Настройки
                       li.divider
                       li
                         a(href='/logout')
-                          | Log out
+                          | Изход
               else
                 ul#nav-mobile.right.hide-on-med-and-down
                     li
