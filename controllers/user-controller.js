@@ -45,7 +45,7 @@ class UserController {
             newUsername = req.body.username,
             message = { error: null,  success: null };
         
-        this.userService.updateUsername(id, newUsername)
+      return this.userService.updateUsername(id, newUsername)
                         .then(data => {
                             if(data.length !== 0) {
                                 message.error = 'Потребителското име което сте вече съществува';

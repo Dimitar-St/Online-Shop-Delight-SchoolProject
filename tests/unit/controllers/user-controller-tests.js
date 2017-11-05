@@ -24,7 +24,8 @@ describe('User controller tests', function() {
                 username: 'username'
             },
             body: { 
-                newEmail: 'newEmail'
+                newEmail: 'newEmail',
+                newUsername: 'newUsername'
             }
         };
         res = {
@@ -148,6 +149,36 @@ describe('User controller tests', function() {
             controller.updateUsername(req, res);
             
             sinon.assert.calledOnce(updateUsernameStub);
+        });
+        
+        it('Should res.render()', function() {
+            let updateUsernameStub = sinon.stub(service, 'updateUsername').returns(Promise.resolve([])),
+                renderStub = sinon.stub(res, 'render');
+            
+            controller.updateUsername(req, res)
+                      .then(() => {
+                          sinon.assert.calledOnce(renderStub);
+                      });
+        });
+        
+        it('Should req.isAuthenticated()', function() {
+            let updateUsernameStub = sinon.stub(service, 'updateUsername').returns(Promise.resolve([])),
+                isAuthenticatedStub = sinon.stub(req, 'isAuthenticated');
+            
+            controller.updateUsername(req, res)
+                      .then(() => {
+                          sinon.assert.calledOnce(isAuthenticatedStub);
+                      });
+        });
+        
+        it('Should this.service.updateUsername()', function() {
+            let updateUsernameStub = sinon.stub(service, 'updateUsername').returns(Promise.resolve([])),
+                isAdminStub = sinon.stub(service, 'isAdmin');
+            
+            controller.updateUsername(req, res)
+                      .then(() => {
+                          sinon.assert.calledOnce(isAdminStub);
+                      });
         });
     });
     
