@@ -20,7 +20,7 @@ describe('Product controller tests', function() {
         res = {
             render: () => {}
         };
-        controller = new ProductsController();
+        controller = new ProductsController({});
     });
     
     it('Expect ProductsController class to exist', function() {
@@ -34,7 +34,7 @@ describe('Product controller tests', function() {
     });
     
     describe('Service property tests', function() {
-         it('The service property should not throw.', function() {
+        it('The service property should not throw.', function() {
             expect(() => {
                 controller.service = {};
             }).to.not.throw();

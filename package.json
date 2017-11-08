@@ -6,7 +6,7 @@
   "scripts": {
     "test": "gulp test",
     "start": "nodemon main.js",
-    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha ./tests/unit/controllers/*.js ./tests/unit/services/*.js"
+    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha ./tests/unit/controllers/*.js ./tests/unit/routers/*.js ./tests/unit/services/*.js"
   },
   "repository": {
     "type": "git",

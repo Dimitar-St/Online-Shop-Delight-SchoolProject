@@ -1,31 +1,25 @@
 extends ../shared/_layout
 
 block content
+  div.view-settings
+    h3
+      b Добави продукт
   .row
-    form.col.s12
-      .row
-        .input-field.col.s6
-          input#first_name.validate(placeholder='Placeholder', type='text')
-          label(for='first_name') First Name
-        .input-field.col.s6
-          input#last_name.validate(type='text')
-          label(for='last_name') Last Name
+    form.col.s10.m8.l6.offset-l3.offset-m2.offset-s1(method='post', action='/menu/add-product')
       .row
         .input-field.col.s12
-          input#disabled.validate(disabled='', value='I am not editable', type='text')
-          label(for='disabled') Disabled
+          input#name.validate(type='text')
+          label(for='password') Име
       .row
         .input-field.col.s12
-          input#password.validate(type='password')
-          label(for='password') Password
+          input#queantity.validate(type='text')
+          label(for='email') Количество
       .row
         .input-field.col.s12
-          input#email.validate(type='email')
-          label(for='email') Email
+          input#price.validate(type='text')
+          label(for='email') Цена
       .row
-        .col.s12
-          | This is an inline input field:
-          .input-field.inline
-            input#email.validate(type='email')
-            label(for='email', data-error='wrong', data-success='right') Email
+        .input-field.col.s12
+          button.btn(type='submit', style='margin-left: 90%') Добави
+      
     

@@ -1,6 +1,6 @@
 class ProductsController {
-    constructor() {
-        //this.service = service
+    constructor(service) {
+        this.service = service
     }
     
     get service() {
@@ -29,6 +29,14 @@ class ProductsController {
             user: req.user,
             isAdmin: this.isAdmin(req)
         });
+    }
+    
+    addProduct(req, res) {
+        let name = req.body.name,
+            quantity = req.body.quantity,
+            price = req.body.price;
+        
+        this.service.addProduct(name, quantity, price);
     }
     
     isAdmin(req) {

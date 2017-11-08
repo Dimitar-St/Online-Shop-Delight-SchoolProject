@@ -4,6 +4,30 @@ class AllRoutes {
         this.router = router;
     }
     
+    get app() {
+        return this._app;
+    }
+    
+    set app(value) {
+        if(value === undefined || value === null || typeof(value) === typeof('st') || typeof(value) === typeof([])) {
+           throw 'Invalid app value';
+        }
+        
+        this._app = value;
+    }
+    
+    get router() {
+        return this._router;
+    }
+    
+    set router(value) {
+        if(value === undefined || value === null || typeof(value) === 'string' || typeof(value) === typeof([])) {
+           throw 'Invalid router value';
+        }
+        
+        this._router = value;
+    }
+    
     load() {
         
         require('./authentication-routes.js')(this.router);

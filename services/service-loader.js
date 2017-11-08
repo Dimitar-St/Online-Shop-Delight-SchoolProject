@@ -6,11 +6,13 @@ mongoose.Promise = global.Promise;
   useMongoClient: true,
 });
 
-const User = require('../models/user-model')();
+const User = require('../models/user-model')(),
+      Product = require('../models/product-model')();
 
 class ServiceLoader {
-    constructor(userModel) {
+    constructor(userModel, productModel) {
         this.userModel = userModel;
+        this.productModel = productModel;
     }
     
     getUserService() {
@@ -19,8 +21,15 @@ class ServiceLoader {
         
         return service;
     }
+    
+    getProductService() {
+        let ProductService = require('./products-service'),
+            service = new ProductService((this.productModel));
+        
+        return service;
+    }
 }
 
-let serviceLoader = new ServiceLoader(User);
+let serviceLoader = new ServiceLoader(User, Product);
 
 module.exports = serviceLoader;

@@ -133,6 +133,14 @@ nav .btn:focus {
     margin-left: 32%;
 }
 
+.row .logo-image-d {
+        background-color: #f1a7af;
+}
+
+.row .add-product-form {
+    margin-left: 500px;
+}
+
 
 
 

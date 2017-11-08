@@ -11,6 +11,8 @@ class ProductsService {
         if(value === null || value === undefined || value === NaN) {
            throw 'The model is not valid.'
         }
+        
+        this._product = value;
     }
     
     addProduct(name, quantity, price) {
