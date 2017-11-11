@@ -8,15 +8,15 @@ block content
     form.col.s10.m8.l6.offset-l3.offset-m2.offset-s1(method='post', action='/menu/add-product')
       .row
         .input-field.col.s12
-          input#name.validate(type='text')
+          input#name.validate(type='text' name='name')
           label(for='password') Име
       .row
         .input-field.col.s12
-          input#queantity.validate(type='text')
+          input#queantity.validate(type='text' name='quantity')
           label(for='email') Количество
       .row
         .input-field.col.s12
-          input#price.validate(type='text')
+          input#price.validate(type='text' name='price')
           label(for='email') Цена
       .row
         .input-field.col.s12

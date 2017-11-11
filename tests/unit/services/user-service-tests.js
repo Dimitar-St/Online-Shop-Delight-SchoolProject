@@ -8,16 +8,21 @@ const mocha = require('mocha'),
 let expect = chai.expect;
 
 describe('User service tests', function() {
-    let service,
+    let bcrypt,
+        service,
         userModelMock,
         saveStub,
         findStub,
         updateStub;
     
     beforeEach(function() {
+        bcrypt = {
+            hashSync: (password, result, smth) => {},
+            genSaltSync: (length) => {}
+        };
         
         userModelMock = new UserModelMock();
-        service = new UserService(UserModelMock);
+        service = new UserService(UserModelMock, bcrypt);
         saveStub = sinon.stub(UserModelMock.prototype, 'save').returns(Promise.resolve());
         findStub = sinon.stub(UserModelMock, 'find').returns(Promise.resolve('no err', [1, 3]));
         updateStub = sinon.stub(UserModelMock, 'update').returns(Promise.resolve());

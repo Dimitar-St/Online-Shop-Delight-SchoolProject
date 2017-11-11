@@ -12,4 +12,11 @@ block content
            th Количество
            th Цена
        tbody
-           tr
+          each product in products
+            tr
+              td 
+               = product.name 
+              td 
+               = product.quantity
+              td 
+               = product.price

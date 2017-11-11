@@ -1,6 +1,7 @@
 class UserService {
-    constructor(model) {
+    constructor(model, bcrypt) {
         this.User = model;
+        this.bcrypt = bcrypt;
     }
 
     createUser(username, email, password, profilePic) {
@@ -14,7 +15,9 @@ class UserService {
             moneyInTheCreditCard: 0,
             shoppingCartProducts: []
          });
-
+        
+        newUser.password = this.bcrypt.hashSync(password, this.bcrypt.genSaltSync(8), null);
+        
         let promise = newUser.save().then(err => {
             if(err) console.log(err);
         });
@@ -26,13 +29,14 @@ class UserService {
         let admin = new this.User({
             username: username,
             email: email,
-            password: password,
             profilePic: profilePic,
             role: 'admin',
             boughtProducts: [],
             moneyInTheCreditCard: 0,
             shoppingCartProducts: []
          });
+        
+         admin.password = this.bcrypt.hashSync(password, this.bcrypt.genSaltSync(8), null);
         
         let promise = admin.save().then(err => {
             if(err) console.log(err);

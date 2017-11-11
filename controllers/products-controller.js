@@ -16,11 +16,16 @@ class ProductsController {
     }
     
     loadMenuPage(req, res) {
-        res.render('./shared/menu', {
-            isAuthenticated: req.isAuthenticated(),
-            user: req.user,
-            isAdmin: this.isAdmin(req)
-        });
+       return this.service
+                  .getAllProducts()
+                  .then((allProducts) => {
+                      res.render('./shared/menu', {
+                          isAuthenticated: req.isAuthenticated(),
+                          user: req.user,
+                          isAdmin: this.isAdmin(req),
+                          products: allProducts
+                      });
+                  });        
     }
     
     loadAddProductPage(req, res) {

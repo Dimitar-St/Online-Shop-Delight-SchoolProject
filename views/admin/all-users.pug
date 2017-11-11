@@ -10,7 +10,6 @@ block content
          tr
            th Id
            th Username
-           th Profile Image
            th Email
            th Role
        tbody
@@ -21,10 +20,10 @@ block content
                td 
                 = user.username
                td 
-                = user.profilePic
-               td 
                 = user.email
                td 
                 = user.role
                td
                 a.btn.btn-mini Edit
+               td
+                a.btn.btn-mini Make admin

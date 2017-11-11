@@ -1,4 +1,6 @@
 module.exports = function(passport, User, LocalStrategy) {
+    const bcrypt = require("bcrypt-nodejs");
+    
     passport.use(new LocalStrategy(
         {
             usernameField: 'username',
@@ -6,10 +8,10 @@ module.exports = function(passport, User, LocalStrategy) {
             passReqToCallback : true
         },
         (req, username, password, done) => {
-            User.findOne({ username, password }, function(err, user) {
+            User.findOne({ username }, function(err, user) {
                 if (err) return done(err);
                 
-                if (!user) {
+                if (!user.validPassword(password)) {
                   return done(null, false, req.flash( 'erorr', 'Incorrect username.'));
                 }
 

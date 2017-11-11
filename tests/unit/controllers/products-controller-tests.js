@@ -7,6 +7,7 @@ let expect = chai.expect;
 
 describe('Product controller tests', function() {
     let controller,
+        service,
         req,
         res; 
     
@@ -20,7 +21,11 @@ describe('Product controller tests', function() {
         res = {
             render: () => {}
         };
-        controller = new ProductsController({});
+        service = {
+            getAllProducts: () => { return Promise.resolve({}); }
+        };
+        
+        controller = new ProductsController(service);
     });
     
     it('Expect ProductsController class to exist', function() {
@@ -57,25 +62,28 @@ describe('Product controller tests', function() {
         it('Should call res.render()', function() {
             let renderStub = sinon.stub(res, 'render');
             
-            controller.loadMenuPage(req, res);
-            
-            sinon.assert.calledOnce(renderStub);
+            controller.loadMenuPage(req, res)
+                      .then(() => {
+                          sinon.assert.calledOnce(renderStub);
+                      });
         });
         
         it('Should call req.isAuthenticated()', function() {
             let isAuthenticatedStub = sinon.stub(req, 'isAuthenticated');
             
-            controller.loadMenuPage(req, res);
-            
-            sinon.assert.calledOnce(isAuthenticatedStub);
+            controller.loadMenuPage(req, res)
+                      .then(() => {
+                          sinon.assert.calledOnce(isAuthenticatedStub);
+                      });
         });
         
         it('Should call this.isAdmin()', function() {
             let isAdminStub = sinon.stub(controller, 'isAdmin');
             
-            controller.loadMenuPage(req, res);
-            
-            sinon.assert.calledOnce(isAdminStub);
+            controller.loadMenuPage(req, res)
+                      .then(() => {
+                          sinon.assert.calledOnce(isAdminStub);
+                      });
         });
     });
     

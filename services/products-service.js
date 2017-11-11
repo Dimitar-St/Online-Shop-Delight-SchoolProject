@@ -1,13 +1,13 @@
 class ProductsService {
     constructor(model) {
-        this.product = model;
+        this.Product = model;
     }
     
-    get product() {
+    get Product() {
         return this._product;
     }
     
-    set product(value) {
+    set Product(value) {
         if(value === null || value === undefined || value === NaN) {
            throw 'The model is not valid.'
         }
@@ -16,7 +16,7 @@ class ProductsService {
     }
     
     addProduct(name, quantity, price) {
-        let newProduct = new this.product({
+        let newProduct = new this.Product({
             name: name,
             quantity: quantity,
             price: price
@@ -27,6 +27,12 @@ class ProductsService {
         });
         
         return promise;
+    }
+    
+    getAllProducts() {
+        return this.Product.find({}, function(err, data) {
+            return Promise.resolve(data);   
+        });
     }
 }
 
