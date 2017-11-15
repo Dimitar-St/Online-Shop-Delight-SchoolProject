@@ -1,5 +1,27 @@
 extends ../shared/_layout
 
 block content
-    h1 
-     = user.username
+    div.view-settings
+     h3
+       b 
+        = user.username
+    
+    .card.horizontal()
+      .card-stacked
+        .card-content
+          p Name : 
+            strong
+             = user.username
+          p Email : 
+            strong
+             = user.email
+          p Money : 
+            strong
+             = user.moneyInTheCreditCard
+          p Role :
+            strong
+             = user.role
+          p Bought products :
+            strong
+             = user.boughtProducts
+         
