@@ -12,6 +12,9 @@ class UserModelMock {
     static update(searchPar, newInfo, action) {
         return Promise.resolve();
     }
+    
+    static findOne(searchedObj, action) {
+    }
 }
 
 module.exports = UserModelMock;

@@ -15,13 +15,17 @@ describe('Admin controller tests', function() {
     beforeEach(function() {
         service = {
             getAllUsers: () => {},
-            isAdmin: (user) => {}
+            isAdmin: (user) => {},
+            findByUsername: (username) => {}
         };
         req = {
             user: {
                 role: ''
             },
-            isAuthenticated: () => {}
+            isAuthenticated: () => {},
+            params: {
+                username: 'username'
+            }
         };
         res = {
             render: () => {}
@@ -73,6 +77,36 @@ describe('Admin controller tests', function() {
             controller.getAllUser(req, res)
                       .then(() => {
                          sinon.assert.calledOnce(isAdminStub);
+                      });
+        });
+    });
+    
+    describe('editTheGivenUser function tests', function() {
+        it('Should this.service.findByUsername()', function() {
+            let findBySernameStub = sinon.stub(service, 'findByUsername').returns(Promise.resolve({}));
+            
+            controller.editTheGivenUser(req, res);
+            
+            sinon.assert.calledOnce(findBySernameStub);
+        });
+        
+        it('Should res.render()', function() {
+            let findByUsernameStub = sinon.stub(service, 'findByUsername').returns(Promise.resolve({})),
+                renderStub = sinon.stub(res, 'render');
+            
+            controller.editTheGivenUser(req, res)
+                      .then(() => {
+                         sinon.assert.calledOnce(renderStub);
+                      });
+        });
+        
+        it('Should res.render()', function() {
+            let findByUsernameStub = sinon.stub(service, 'findByUsername').returns(Promise.resolve({})),
+                isAuthenticatedStub = sinon.stub(req, 'isAuthenticated');
+            
+            controller.editTheGivenUser(req, res)
+                      .then(() => {
+                         sinon.assert.calledOnce(isAuthenticatedStub);
                       });
         });
     });

@@ -45,7 +45,10 @@ class UserService {
         return promise;
     }
 
-    findById(id) {
+    findByUsername(username) {
+        return this.User.findOne({ username: username }, function(error, data) {
+            return Promise.resolve(data);
+        });
     }
     
     getAllUsers() {

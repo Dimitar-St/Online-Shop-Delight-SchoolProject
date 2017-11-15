@@ -27,11 +27,6 @@ const userSchema = new Schema({
     shoppingCartProducts: Array
 });
 
-userSchema.methods.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.password);
-}
-
-mongoose.model('User', userSchema);
 
 userSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
@@ -40,6 +35,8 @@ userSchema.methods.generateHash = function(password) {
 userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
+
+mongoose.model('User', userSchema);
 
 module.exports = function() {
     return mongoose.model('User'); 

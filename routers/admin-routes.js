@@ -12,5 +12,6 @@ module.exports = function(router) {
     
     let controller = new AdminController(userService);
     
-    router.get('/admin/edit/users', isAdmin, (req, res) => controller.getAllUser(req, res));
+    router.get('/admin/edit/users', isAdmin, (req, res) => controller.getAllUser(req, res))
+          .get('/admin/edit/:username', isAdmin, (req, res) => controller.editTheGivenUser(req, res));
 };

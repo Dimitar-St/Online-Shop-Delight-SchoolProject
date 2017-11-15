@@ -11,6 +11,9 @@ const productSchema = new Schema({
     quantity: {
         type: Number
     },
+    weight: {
+        type: Number
+    },
     price: {
         type: Number,
         min: 0.1,

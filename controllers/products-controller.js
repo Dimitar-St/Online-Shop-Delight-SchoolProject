@@ -39,9 +39,10 @@ class ProductsController {
     addProduct(req, res) {
         let name = req.body.name,
             quantity = req.body.quantity,
+            weight = req.body.weight,
             price = req.body.price;
         
-        this.service.addProduct(name, quantity, price);
+        this.service.addProduct(name, quantity, weight, price);
     }
     
     isAdmin(req) {

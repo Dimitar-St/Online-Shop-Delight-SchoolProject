@@ -4,6 +4,13 @@ block content
    div.view-settings
     h3
       b Manage Users
+   .row.search-users
+     form.col.s9
+       .row
+         .input-field.col.s6
+           input#icon_prefix.validate(type='text')
+           label(for='icon_prefix') Search  
+           button.btn.btn-sm Search
    .row.manage-users
      table.table.bordered
        thead
@@ -24,6 +31,6 @@ block content
                td 
                 = user.role
                td
-                a.btn.btn-mini Edit
+                a.btn.btn-mini(href="/admin/edit/" + user.username) Edit
                td
                 a.btn.btn-mini Make admin

@@ -13,6 +13,7 @@ describe('User service tests', function() {
         userModelMock,
         saveStub,
         findStub,
+        findOneStub,
         updateStub;
     
     beforeEach(function() {
@@ -26,12 +27,14 @@ describe('User service tests', function() {
         saveStub = sinon.stub(UserModelMock.prototype, 'save').returns(Promise.resolve());
         findStub = sinon.stub(UserModelMock, 'find').returns(Promise.resolve('no err', [1, 3]));
         updateStub = sinon.stub(UserModelMock, 'update').returns(Promise.resolve());
+        findOneStub = sinon.stub(UserModelMock, 'findOne').returns(Promise.resolve());
     });
     
     afterEach(function() {
         saveStub.restore();
         findStub.restore();
         updateStub.restore();
+        findOneStub.restore();
     });
     
     it('Expect UserService class to exist', function() {
@@ -102,6 +105,14 @@ describe('User service tests', function() {
 //                        sinon.assert.calledOnce(updateStub);
 //                   });
 //        });
+    });
+    
+    describe('findByUsername function tests', function() {
+        it('Should call this.User.findOne()', function() {
+            service.findByUsername('username');
+            
+            sinon.assert.calledOnce(findOneStub);
+        });
     });
 });
 

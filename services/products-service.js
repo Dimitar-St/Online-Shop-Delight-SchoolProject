@@ -15,11 +15,12 @@ class ProductsService {
         this._product = value;
     }
     
-    addProduct(name, quantity, price) {
+    addProduct(name, quantity, weight, price) {
         let newProduct = new this.Product({
             name: name,
             quantity: quantity,
-            price: price
+            price: price,
+            weight: weight
         });
 
         let promise = newProduct.save().then(err => {
