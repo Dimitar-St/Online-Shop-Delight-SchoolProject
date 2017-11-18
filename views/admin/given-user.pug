@@ -1,27 +1,39 @@
 extends ../shared/_layout
+include options/add-money
 
 block content
     div.view-settings
      h3
        b 
         = user.username
-    
-    .card.horizontal()
-      .card-stacked
-        .card-content
-          p Name : 
-            strong
-             = user.username
-          p Email : 
-            strong
-             = user.email
-          p Money : 
-            strong
-             = user.moneyInTheCreditCard
-          p Role :
-            strong
-             = user.role
-          p Bought products :
-            strong
-             = user.boughtProducts
-         
+
+    ul.collapsible.user-settings-table(data-collapsible='accordion')
+        li
+          .collapsible-header
+            div
+                b Name
+                p(style='margin-left: 100px') 
+                  = user.username
+          .collapsible-body
+        li
+          .collapsible-header
+            div
+                b Email
+                p(style='margin-left: 100px') 
+                  = user.email
+          .collapsible-body
+        li
+          .collapsible-header
+            div
+                b Money 
+                p(style='margin-left: 90px') 
+                 = user.moneyInTheCreditCard
+          .collapsible-body
+            +add-money()
+        li
+          .collapsible-header
+            div
+                b Bought products  
+                p(style='margin-left: 100px') 
+                 = user.boughtProducts
+          .collapsible-body       

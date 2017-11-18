@@ -50,6 +50,15 @@ class UserService {
             return Promise.resolve(data);
         });
     }
+
+    addMoney(user, money) {
+        return new Promise((res, rej) => {
+            user.moneyInTheCreditCard += money;
+
+            user.save();
+            res();
+        });
+    }
     
     getAllUsers() {
         return this.User.find({}, function(err, data) {

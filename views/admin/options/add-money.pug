@@ -1,0 +1,5 @@
+mixin add-money()
+    form(method="POST", action='/admin/edit/' + user.username + '/add-money')
+        p
+          input#moeny.validate(type='text' name='money')
+        button.btn.btn-primary(type='submit') Add

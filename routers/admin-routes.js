@@ -13,5 +13,6 @@ module.exports = function(router) {
     let controller = new AdminController(userService);
     
     router.get('/admin/edit/users', isAdmin, (req, res) => controller.getAllUser(req, res))
-          .get('/admin/edit/:username', isAdmin, (req, res) => controller.editTheGivenUser(req, res));
+          .get('/admin/edit/:username', isAdmin, (req, res) => controller.editTheGivenUser(req, res))
+          .post('/admin/edit/:username/add-money', isAdmin, (req, res) => controller.addMoney(req, res));
 };

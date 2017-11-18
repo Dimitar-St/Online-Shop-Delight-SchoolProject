@@ -74,7 +74,7 @@ nav .btn:focus {
 
 .manage-users {
     margin-top: 50px;
-    margin-left: 160px;
+    margin-left: 19.5%;
     width: 1000px;
     border-radius: 5px;
 }
@@ -142,11 +142,13 @@ nav .btn:focus {
 }
 
 .search-users {
-    margin-left: 30%;
+    margin-left: 36.5%;
 }
 
-
-
+.btn-add-money {
+    width: 30px;
+    height: 20px;
+}
 
 
 

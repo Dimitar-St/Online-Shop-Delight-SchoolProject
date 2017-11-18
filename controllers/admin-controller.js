@@ -28,6 +28,26 @@ class AdminController {
                                  }); 
                               });
     }
+
+    addMoney(req, res) {
+      let username = req.params.username,
+          money = +req.body.money;
+      
+      return this.userService
+                 .findByUsername(username)
+                 .then((user) => {
+                    this.userService.addMoney(user, money);
+
+                    res.render('./admin/given-user.pug', {
+                        isAuthenticated: req.isAuthenticated(),
+                        user: user,
+                        isAdmin: true,
+                        message: {
+                            success: 'The money was added successfully'
+                        }
+                    });
+                 });
+    }
 }
 
 module.exports = AdminController;
