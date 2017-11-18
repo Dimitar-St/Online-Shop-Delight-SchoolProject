@@ -19,14 +19,15 @@ class AdminController {
     editTheGivenUser(req, res) {
        let username = req.params.username;
         
-       return this.userService.findByUsername(username)
-                              .then((user) => {
-                                 res.render('./admin/given-user.pug', {
-                                     isAuthenticated: req.isAuthenticated(),
-                                     user: user,
-                                     isAdmin: true
-                                 }); 
-                              });
+       return this.userService
+                  .findByUsername(username)
+                  .then((user) => {
+                     res.render('./admin/given-user.pug', {
+                         isAuthenticated: req.isAuthenticated(),
+                         user: user,
+                         isAdmin: true
+                     }); 
+                  });
     }
 
     addMoney(req, res) {

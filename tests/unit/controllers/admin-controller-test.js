@@ -16,7 +16,10 @@ describe('Admin controller tests', function() {
         service = {
             getAllUsers: () => {},
             isAdmin: (user) => {},
-            findByUsername: (username) => {}
+            findByUsername: (username) => {
+                return Promise.resolve();
+            },
+            addMoney: (user, money) => {}
         };
         req = {
             user: {
@@ -25,6 +28,12 @@ describe('Admin controller tests', function() {
             isAuthenticated: () => {},
             params: {
                 username: 'username'
+            },
+            params: {
+                username: 'kendal'
+            },
+            body: {
+                money: '12'
             }
         };
         res = {
@@ -42,7 +51,7 @@ describe('Admin controller tests', function() {
     });
     
     describe('getAllUsers function tests', function() {
-        it('Should this.service.getAllUsers()', function() {
+        it('Should call this.service.getAllUsers()', function() {
             let getAllUsersStub = sinon.stub(service, 'getAllUsers').returns(Promise.resolve({}));
             
             controller.getAllUser(req, res);
@@ -50,7 +59,7 @@ describe('Admin controller tests', function() {
             sinon.assert.calledOnce(getAllUsersStub);
         });
         
-        it('Should res.render()', function() {
+        it('Should call res.render()', function() {
             let getAllUsersStub = sinon.stub(service, 'getAllUsers').returns(Promise.resolve({})),
                 renderStub = sinon.stub(res, 'render');
             
@@ -60,7 +69,7 @@ describe('Admin controller tests', function() {
                       });
         });
         
-        it('Should res.render()', function() {
+        it('Should call res.render()', function() {
             let getAllUsersStub = sinon.stub(service, 'getAllUsers').returns(Promise.resolve({})),
                 isAuthenticatedStub = sinon.stub(req, 'isAuthenticated');
             
@@ -70,7 +79,7 @@ describe('Admin controller tests', function() {
                       });
         });
         
-        it('Should this.service.isAdmin()', function() {
+        it('Should call this.service.isAdmin()', function() {
             let getAllUsersStub = sinon.stub(service, 'getAllUsers').returns(Promise.resolve({})),
                 isAdminStub = sinon.stub(service, 'isAdmin');
             
@@ -82,7 +91,7 @@ describe('Admin controller tests', function() {
     });
     
     describe('editTheGivenUser function tests', function() {
-        it('Should this.service.findByUsername()', function() {
+        it('Should call this.service.findByUsername()', function() {
             let findBySernameStub = sinon.stub(service, 'findByUsername').returns(Promise.resolve({}));
             
             controller.editTheGivenUser(req, res);
@@ -90,7 +99,7 @@ describe('Admin controller tests', function() {
             sinon.assert.calledOnce(findBySernameStub);
         });
         
-        it('Should res.render()', function() {
+        it('Should call res.render()', function() {
             let findByUsernameStub = sinon.stub(service, 'findByUsername').returns(Promise.resolve({})),
                 renderStub = sinon.stub(res, 'render');
             
@@ -100,13 +109,50 @@ describe('Admin controller tests', function() {
                       });
         });
         
-        it('Should res.render()', function() {
+        it('Should call res.render()', function() {
             let findByUsernameStub = sinon.stub(service, 'findByUsername').returns(Promise.resolve({})),
                 isAuthenticatedStub = sinon.stub(req, 'isAuthenticated');
             
             controller.editTheGivenUser(req, res)
                       .then(() => {
                          sinon.assert.calledOnce(isAuthenticatedStub);
+                      });
+        });
+    });
+
+    describe('addMoney function tests', function() {
+        it('Should call this.service.findByUsername()', function() {
+            let findBySernameStub = sinon.stub(service, 'findByUsername').returns(Promise.resolve({}));
+            
+            controller.addMoney(req, res);
+            
+            sinon.assert.calledOnce(findBySernameStub);
+        });
+
+        it('Should call this.service.addMoney()', function() {
+            let addMoneyStub = sinon.stub(service, 'addMoney').returns(Promise.resolve({}));
+            
+            controller.addMoney(req, res)
+                      .then(() => {
+                        sinon.assert.calledOnce(addMoneyStub);
+                      });
+        });
+
+        it('Should call res.render()', function() {
+            let renderStub = sinon.stub(res, 'render');
+            
+            controller.addMoney(req, res)
+                      .then(() => {
+                        sinon.assert.calledOnce(renderStub);
+                      });
+        });
+
+        it('Should call req.isAuthenticated()', function() {
+            let isAuthenticatedStub = sinon.stub(req, 'isAuthenticated');
+            
+            controller.addMoney(req, res)
+                      .then(() => {
+                        sinon.assert.calledOnce(isAuthenticatedStub);
                       });
         });
     });
