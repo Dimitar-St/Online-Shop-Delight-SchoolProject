@@ -29,6 +29,14 @@ class ProductsService {
         
         return promise;
     }
+
+    removeProduct(name) {
+       return this.Product.findOneAndRemove({ name: name }, function(err) {
+           if (err) {
+              Promise.resolve(err);
+           }
+       });
+    }
     
     getAllProducts() {
         return this.Product.find({}, function(err, data) {

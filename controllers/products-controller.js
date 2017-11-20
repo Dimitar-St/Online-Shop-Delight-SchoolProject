@@ -35,6 +35,14 @@ class ProductsController {
             isAdmin: this.isAdmin(req)
         });
     }
+
+    loadRemovePage(req, res) {
+        res.render('./admin/remove-product', {
+            isAuthenticated: req.isAuthenticated(),
+            user: req.user,
+            isAdmin: this.isAdmin(req)
+        });
+    }
     
     addProduct(req, res) {
         let name = req.body.name,
@@ -43,6 +51,38 @@ class ProductsController {
             price = req.body.price;
         
         this.service.addProduct(name, quantity, weight, price);
+
+        res.render('./admin/add-product', {
+            isAuthenticated: req.isAuthenticated(),
+            user: req.user,
+            isAdmin: this.isAdmin(req),
+            message: {
+                success: 'Продукта беше добавен успешно'
+            }
+        });
+    }
+
+    removeProduct(req, res) {
+        let name = req.body.name,
+            message = { };
+
+        return this.service
+                   .removeProduct(name)
+                   .then((err) => {
+                     if(err) {
+                        message.error = err;
+                     } else {
+                         messsage.success = 'Продукта е премахнат успешно.';
+                     }
+
+                     res.render('./admin/remove-product.pug', {
+                        isAuthenticated: req.isAuthenticated(),
+                        user: req.user,
+                        isAdmin: this.isAdmin(req),
+                        message: message
+                     });
+                     
+                   });
     }
     
     isAdmin(req) {

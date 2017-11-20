@@ -44,7 +44,7 @@ class AdminController {
                         user: user,
                         isAdmin: true,
                         message: {
-                            success: 'The money was added successfully'
+                            success: 'Парите са добавени успешно.'
                         }
                     });
                  });
