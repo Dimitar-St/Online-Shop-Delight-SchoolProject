@@ -16,13 +16,20 @@ describe('Product controller tests', function() {
             isAuthenticated: () => {},
             user: {
                 role: 'admin'
+            },
+            body: {
+                name: 'name', 
+                quantity: 'quantity',
+                wieght: 'weight',
+                price: 'price'
             }
         };
         res = {
             render: () => {}
         };
         service = {
-            getAllProducts: () => { return Promise.resolve({}); }
+            getAllProducts: () => { return Promise.resolve({}); },
+            addProduct: (name, quantity, weight, price) => {}
         };
         
         controller = new ProductsController(service);
@@ -108,6 +115,66 @@ describe('Product controller tests', function() {
             let isAdminStub = sinon.stub(controller, 'isAdmin');
             
             controller.loadAddProductPage(req, res);
+            
+            sinon.assert.calledOnce(isAdminStub);
+        });
+    });
+
+    describe('loadRemovePage function tests', function() {
+        it('Should call res.render()', function() {
+            let renderStub = sinon.stub(res, 'render');
+            
+            controller.loadRemovePage(req, res);
+            
+            sinon.assert.calledOnce(renderStub);
+        });
+
+        it('Should call req.isAuthenticated()', function() {
+            let isAuthenticatedStub = sinon.stub(req, 'isAuthenticated');
+            
+            controller.loadRemovePage(req, res);
+            
+            sinon.assert.calledOnce(isAuthenticatedStub);
+        });
+
+        it('Should call this.isAdmin()', function() {
+            let isAdminStub = sinon.stub(controller, 'isAdmin');
+            
+            controller.loadRemovePage(req, res);
+            
+            sinon.assert.calledOnce(isAdminStub);
+        });
+    });
+
+    describe('addProduct function tests', function() {
+        it('Should call this.service.addProduct()', function() {
+            let addProductStub = sinon.stub(service, 'addProduct');
+            
+            controller.addProduct(req, res);
+            
+            sinon.assert.calledOnce(addProductStub);
+        });
+
+        it('Should call res.render()', function() {
+            let renderStub = sinon.stub(res, 'render');
+            
+            controller.addProduct(req, res);
+            
+            sinon.assert.calledOnce(renderStub);
+        });
+
+        it('Should call req.isAuthenticated()', function() {
+            let isAuthenticatedStub = sinon.stub(req, 'isAuthenticated');
+            
+            controller.addProduct(req, res);
+            
+            sinon.assert.calledOnce(isAuthenticatedStub);
+        });
+
+        it('Should call this.isAdmin()', function() {
+            let isAdminStub = sinon.stub(controller, 'isAdmin');
+            
+            controller.addProduct(req, res);
             
             sinon.assert.calledOnce(isAdminStub);
         });
