@@ -31,9 +31,9 @@ class ProductsService {
     }
 
     removeProduct(name) {
-       return this.Product.findOneAndRemove({ name: name }, function(err) {
-           if (err) {
-              Promise.resolve(err);
+       return this.Product.findOneAndRemove({ name: name }, function(data) {
+           if (data) {
+              Promise.resolve(data);
            }
        });
     }

@@ -68,19 +68,19 @@ class ProductsController {
 
         return this.service
                    .removeProduct(name)
-                   .then((err) => {
-                     if(err) {
-                        message.error = err;
-                     } else {
-                         messsage.success = 'Продукта е премахнат успешно.';
-                     }
+                   .then((product) => {
+                        if(product === null) {
+                            message.error = 'Възникна проблем при премахването на продукта.';
+                        } else {
+                            message.success = 'Продукта е премахнат успешно.';
+                        }
 
-                     res.render('./admin/remove-product.pug', {
-                        isAuthenticated: req.isAuthenticated(),
-                        user: req.user,
-                        isAdmin: this.isAdmin(req),
-                        message: message
-                     });
+                        res.render('./admin/remove-product.pug', {
+                           isAuthenticated: req.isAuthenticated(),
+                           user: req.user,
+                           isAdmin: this.isAdmin(req),
+                           message: message
+                        });
                      
                    });
     }
