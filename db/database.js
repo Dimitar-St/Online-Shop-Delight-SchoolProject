@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 module.exports = () => {
-  mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/Shop-Delight', {
+  mongoose.connect(process.env.MONGODB_URI, {
     useMongoClient: true,
   }, function (err, res) {
     if (err) {
