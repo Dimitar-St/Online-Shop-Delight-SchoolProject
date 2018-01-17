@@ -9,7 +9,6 @@ nav {
 }
 
 .brand-logo>img {
-    margin-top: 10px;
     margin-left: 30px;
     width: auto;
     height: 80px;
@@ -163,13 +162,22 @@ nav .btn:focus {
     margin-top: 3%;
     margin-left: 30%;
 }
-
+/* 
 .home-image-slider {
     margin-top: 10%;
     margin-left: 17%;
     width: 60%;
-}
+} */
 
 .email {
     color: white;
+}
+
+#main-menu li .link {
+    padding-top: 5px;
+    height: 80px;
+}
+
+#main-menu li a.link:hover {
+    color: #4e342e;
 }

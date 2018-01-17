@@ -5,14 +5,17 @@ mixin nav()
               img(src="../../public/img/naslada_logo.png", alt="Delight")
             ul#main-menu.right.hide-on-med-and-down
               li
-                a(href='/menu', style="color: white")
+                a.link(href='/', style="color: white")
+                  |НАЧАЛО
+              li
+                a.link(href='/menu', style="color: white")
                   |МЕНЮ
               li
-                a(href='/for-us', style="color: white")
+                a.link(href='/for-us', style="color: white")
                   |ЗА НАС
               if isAuthenticated
                 li
-                  a(href='/orders', style="color: white")
+                  a.link(href='/orders', style="color: white")
                     | ПОРЪЧАЙ
               if isAuthenticated
                 li
