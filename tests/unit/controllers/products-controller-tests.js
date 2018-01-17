@@ -29,7 +29,8 @@ describe('Product controller tests', function() {
         };
         service = {
             getAllProducts: () => { return Promise.resolve({}); },
-            addProduct: (name, quantity, weight, price) => {}
+            addProduct: (name, quantity, weight, price) => {},
+            removeProduct: (name) => { return Promise.resolve({}); }
         };
         
         controller = new ProductsController(service);
@@ -177,6 +178,43 @@ describe('Product controller tests', function() {
             controller.addProduct(req, res);
             
             sinon.assert.calledOnce(isAdminStub);
+        });
+    });
+
+    describe('removeProduct function tests', function() {
+        it('Should call this.service.removeProduct()', function() {
+            let removeProductStub = sinon.stub(service, 'removeProduct').returns(Promise.resolve());
+            
+            controller.removeProduct(req, res);
+            
+            sinon.assert.calledOnce(removeProductStub);
+        });
+
+        it('Should call res.render()', function() {
+            let renderStub = sinon.stub(res, 'render');
+            
+            controller.removeProduct(req, res)
+                     .then(() => {
+                        sinon.assert.calledOnce(renderStub);
+                     });
+        });
+
+        it('Should call req.isAuthenticated()', function() {
+            let isAuthenticatedStub = sinon.stub(req, 'isAuthenticated');
+            
+            controller.removeProduct(req, res)
+                     .then(() => {
+                        sinon.assert.calledOnce(isAuthenticatedStub);
+                     });
+        });
+
+        it('Should call this.isAdmin()', function() {
+            let isAdminStub = sinon.stub(controller, 'isAdmin');
+            
+            controller.removeProduct(req, res)
+                     .then(() => {
+                        sinon.assert.calledOnce(isAdminStub);
+                     });
         });
     });
 });

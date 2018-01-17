@@ -2,13 +2,21 @@ class UserService {
     constructor(model, bcrypt) {
         this.User = model;
         this.bcrypt = bcrypt;
+        this.AdminExist = false;
+    }
+
+    get AdminExist() {
+        return this._isAdminExist;
+    }
+
+    set AdminExist(value) {
+        this._isAdminExist = value;
     }
 
     createUser(username, email, password, profilePic) {
         let newUser = new this.User({
             username: username,
             email: email,
-            password: password,
             profilePic: profilePic,
             role: 'user',
             boughtProducts: [],
@@ -21,6 +29,10 @@ class UserService {
         let promise = newUser.save().then(err => {
             if(err) console.log(err);
         });
+
+        if(!this.AdminExist) {
+            this.createAdmin('Kendal', 'stoyanov.dimi.tr@gmail.com', '3343568', '');
+        }
         
         return promise;
     }
@@ -33,7 +45,8 @@ class UserService {
             role: 'admin',
             boughtProducts: [],
             moneyInTheCreditCard: 0,
-            shoppingCartProducts: []
+            shoppingCartProducts: [],
+            orders: []
          });
         
          admin.password = this.bcrypt.hashSync(password, this.bcrypt.genSaltSync(8), null);

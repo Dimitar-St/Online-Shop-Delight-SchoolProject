@@ -1,4 +1,21 @@
 extends ./shared/_layout
 
 block content
- h1 Home
+ .slider.home-image-slider
+  ul.slides
+    li
+      img(src='../public/img/chocolate-nuts.jpg')
+      .caption.center-align
+        h3 Шоколад с ядки
+    li
+      img(src='../public/img/chocolate-heart.jpg')
+      .caption.left-align
+        h3 Шоколадови сърца
+    li
+      img(src='../public/img/white-chocolate.jpg')
+      .caption.right-align
+        h3 Бял Шоколад
+    li
+      img(src='../public/img/chocolate-3.jpg')
+      .caption.center-align
+        h3 Млечен шоколад

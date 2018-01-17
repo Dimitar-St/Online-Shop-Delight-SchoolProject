@@ -1,8 +1,13 @@
 /* Navigation style */
+/* body {
+    background-color: #f1a7af
+} */
+
 nav {
     height: 80px;
     box-shadow: none;
 }
+
 .brand-logo>img {
     margin-top: 10px;
     margin-left: 30px;
@@ -59,7 +64,10 @@ nav .btn:focus {
 }
 
 .profile {
-   background-color: #f1a7af
+   background-color: #f1a7af;
+   margin-top: 5%;
+   padding-top: 5%;
+   padding-bottom: 5%;
 }
 
 .profile-info {
@@ -150,9 +158,18 @@ nav .btn:focus {
     height: 20px;
 }
 
+.add-offer {
+    width: 40%;
+    margin-top: 3%;
+    margin-left: 30%;
+}
 
+.home-image-slider {
+    margin-top: 10%;
+    margin-left: 17%;
+    width: 60%;
+}
 
-
-
-
-
+.email {
+    color: white;
+}

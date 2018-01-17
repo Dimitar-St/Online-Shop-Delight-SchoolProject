@@ -38,7 +38,9 @@ class AuthenticationController {
 
     login(req, res) {
         res.render('home-page', {
-            message: req.flash()
+            message: {
+                success: req.flash()
+            }
         });
     }
 

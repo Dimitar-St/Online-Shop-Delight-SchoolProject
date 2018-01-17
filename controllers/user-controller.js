@@ -37,6 +37,7 @@ class UserController {
         
         this.userService.updateProfileImage(id, newImage);
         
+        
         res.redirect('/' + req.user.username + '/profile');
     }
     
@@ -62,6 +63,8 @@ class UserController {
                                          });
                         });
     }
+
+    
 }
 
 module.exports = UserController;

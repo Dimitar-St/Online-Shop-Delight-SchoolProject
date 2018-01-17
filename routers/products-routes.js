@@ -29,6 +29,7 @@ module.exports = function(router) {
     router.get('/menu', (req, res) => controller.loadMenuPage(req, res))
           .get('/menu/add-product', isAdmin, (req, res) => controller.loadAddProductPage(req, res))
           .get('/menu/remove-product', isAdmin, (req, res) => controller.loadRemovePage(req, res))
+          .get('/orders', isAuthenticated, (req, res) => controller.loadOrdersPage(req, res))
           .post('/menu/add-product', isAdmin, (req, res) => controller.addProduct(req, res))
           .post('/menu/remove-product', isAdmin, (req, res) => controller.removeProduct(req, res));
 };

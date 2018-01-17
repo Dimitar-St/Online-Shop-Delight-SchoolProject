@@ -1,10 +1,12 @@
 const User = require('../models/user-model')(),
-      Product = require('../models/product-model')();
+      Product = require('../models/product-model')(),
+      Offer = require('../models/offer-model')();
 
 class ServiceLoader {
-    constructor(userModel, productModel) {
+    constructor(userModel, productModel, offerModel) {
         this.userModel = userModel;
         this.productModel = productModel;
+        this.offerModel = offerModel;
     }
     
     getUserService() {
@@ -21,8 +23,15 @@ class ServiceLoader {
         
         return service;
     }
+
+    getOfferService() {
+        let OfferService = require('./offers-service'),
+            service = new OfferService(this.offerModel);
+
+        return service;
+    }
 }
 
-let serviceLoader = new ServiceLoader(User, Product);
+let serviceLoader = new ServiceLoader(User, Product, Offer);
 
 module.exports = serviceLoader;

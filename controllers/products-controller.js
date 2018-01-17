@@ -43,6 +43,14 @@ class ProductsController {
             isAdmin: this.isAdmin(req)
         });
     }
+
+    loadOrdersPage(req, res) {
+        res.render('./user/order-page', {
+            isAuthenticated: req.isAuthenticated(),
+            user: req.user,
+            isAdmin: this.isAdmin(req)
+        });
+    }
     
     addProduct(req, res) {
         let name = req.body.name,
@@ -86,7 +94,7 @@ class ProductsController {
     }
     
     isAdmin(req) {
-        if(req.user != undefined) {
+        if(req.user !== undefined) {
            return req.user.role === 'admin';       
         } else {
             return false;

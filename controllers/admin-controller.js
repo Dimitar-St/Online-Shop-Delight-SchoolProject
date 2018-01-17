@@ -1,6 +1,7 @@
 class AdminController {
-    constructor(userService) {
+    constructor(userService, offerService) {
         this.userService = userService;
+        this.offerService = offerService;
     }
     
     getAllUser(req, res) {
@@ -48,6 +49,32 @@ class AdminController {
                         }
                     });
                  });
+    }
+
+    loadAddOffer(req, res) {
+        res.render('./admin/add-offer.pug', {
+                        isAuthenticated: req.isAuthenticated(),
+                        user: req.user,
+                        isAdmin: true
+                    });
+    }
+
+    addOffer(req, res) {
+        let firstImage = req.body.firstImage,
+            secondImage = req.body.secondImage; 
+
+        this.offerService
+            .addOffer(firstImage, secondImage)
+            .then(() => {
+                res.render('./admin/add-offer.pug', {
+                        isAuthenticated: req.isAuthenticated(),
+                        user: req.user,
+                        isAdmin: true,
+                        message: {
+                            success: 'Офертата е добавена успешно.'
+                        }
+                    });
+            });
     }
 }
 

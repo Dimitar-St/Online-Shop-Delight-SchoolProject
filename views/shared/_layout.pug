@@ -8,11 +8,30 @@ html(lang='en')
    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
    link(rel='stylesheet', href='/public/style/style.css')
   body
-    +nav()
+    main(id="main") 
+      +nav()
 
-    +message()
+      +message()
 
-    block content
+      block content
+
+    footer.page-footer.brown.darken-2(style="margin-top: 50%").footer
+      .container
+        .row
+          .col.l6.s12
+            h5.white-text Наслада
+          .col.l4.offset-l2.s12
+            h5.white-text Контакти
+            ul
+              li
+                i.material-icons.dp48.email email
+                br
+                a.grey-text.text-lighten-3(href='#!') utf.naslada@abv.bg
+      .footer-copyright
+        .container
+          | © 2017 Наслада
+          a.grey-text.text-lighten-4.right(href='#!') More Links
+
 
     script(src='/libs/jquery/dist/jquery.min.js')
     script(src='/libs/materialize-css/dist/js/materialize.js')

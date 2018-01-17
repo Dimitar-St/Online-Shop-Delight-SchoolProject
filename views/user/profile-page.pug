@@ -4,10 +4,10 @@ block content
       .row.profile
         .profile-info
           .col.s12.m7
-            h2.header 
+            h2.header(style='padding: 3%')
               = user.username
-            img.circle.responsive-img.profile-image(src = user.profilePic + '')
-            .card.horizontal()
+            img.circle.responsive-img.profile-image(src = user.profilePic + '', style='padding: 3%')
+            .card.horizontal(style='padding: 3%; border-radius: 5px;')
               .card-stacked
                 .card-content
                   p Name : 
