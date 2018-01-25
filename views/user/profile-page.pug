@@ -4,18 +4,19 @@ block content
       .row.profile
         .profile-info
           .col.s12.m7
-            h2.header(style='padding: 3%')
-              = user.username
-            img.circle.responsive-img.profile-image(src = user.profilePic + '', style='padding: 3%')
-            .card.horizontal(style='padding: 3%; border-radius: 5px;')
-              .card-stacked
-                .card-content
-                  p Name : 
-                    strong
-                     = user.username
-                  p Email : 
-                    strong
-                     = user.email
-                  p Money : 
-                    strong
-                     = user.moneyInTheCreditCard
+            span
+              h2.header.username(style='padding: 3%; color: white;')
+                = user.username
+              img.circle.responsive-img.profile-image(src = user.profilePic + '')
+            div(style='background-color: white; padding: 2%; border-radius: 5%;')  
+              p Name : 
+                strong
+                 = user.username
+              div.divider(style="background-color: #60272a;")
+              p Email : 
+                strong
+                 = user.email
+              div.divider(style="background-color: #60272a;")
+              p Money : 
+                strong
+                 = user.moneyInTheCreditCard

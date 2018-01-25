@@ -37,16 +37,23 @@ class AuthenticationController {
     }
 
     login(req, res) {
-        res.render('home-page', {
+        res.render('home', {
+            isAuthenticated: req.isAuthenticated(),
+            user: req.user,
+            isAdmin: req.user.role === 'admin',
             message: {
-                success: req.flash()
+                success: 'Успешно влезнахте в профила си!'
             }
         });
     }
 
     logout(req, res) {
         req.logout();
-        res.redirect('/');
+        res.render('home', {
+            message: {
+                success: 'Успешно излезнахте от профила си!'
+            }
+        });
     }
 }
 

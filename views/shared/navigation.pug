@@ -1,49 +1,58 @@
 mixin nav()
-    nav(class="#4e342e brown darken-3")
-          .nav-wrapper
-            a.brand-logo(href='#')
-              img(src="../../public/img/naslada_logo.png", alt="Delight")
-            ul#main-menu.right.hide-on-med-and-down
+  nav(class="#4e342e brown darken-3")
+    .nav-wrapper
+      a.brand-logo(href='#')
+        img(src="../../public/img/naslada_logo.png", alt="Delight")
+      ul#main-menu.right.hide-on-med-and-down
+        li
+          a.link(href='/', style="color: white")
+            |НАЧАЛО
+        li
+          a.link(href='/menu', style="color: white")
+            |МЕНЮ
+        li
+          a.link(href='/for-us', style="color: white")
+            |ЗА НАС
+        if isAuthenticated
+          li
+            a.link(href='/orders', style="color: white")
+              | ПОРЪЧАЙ
+        if isAuthenticated
+          li
+            a.btn.dropdown-button.right(href='#', data-activates='dropdown', style="border-radius: 10px; margin-top: 6%;")
+              = user.username
+              i.material-icons.right arrow_drop_down
+            ul#dropdown.dropdown-content(style="color: white; margin-left: 1%; margin-top: 3%;")
+              if isAdmin
+                li 
+                  a(href='/admin/edit/users') Потребители
+                   i.material-icons supervisor_account
+                li 
+                  a(href='/menu/add-product') Добави продукт
+                   i.material-icons add_box
+                li 
+                  a(href='/menu/remove-product') Премахни продукт
+                   i.material-icons delete_forever
+                li 
+                  a(href='/admin/add-offer') Добави оферта
+                    i.material-icons playlist_add
+                li.divider
               li
-                a.link(href='/', style="color: white")
-                  |НАЧАЛО
+                a(href='/' + user.username + '/profile') Моят Профил
+                  i.material-icons account_circle
               li
-                a.link(href='/menu', style="color: white")
-                  |МЕНЮ
+                a(href='/' + user.username + '/settings') Настройки
+                  i.material-icons settings
+              li.divider
               li
-                a.link(href='/for-us', style="color: white")
-                  |ЗА НАС
-              if isAuthenticated
-                li
-                  a.link(href='/orders', style="color: white")
-                    | ПОРЪЧАЙ
-              if isAuthenticated
-                li
-                  a.btn.dropdown-button.right(href='#', data-activates='dropdown')
-                    = user.username
-                    i.material-icons.right arrow_drop_down
-                  ul#dropdown.dropdown-content(style="color: white")
-                    if isAdmin
-                      li 
-                        a(href='/admin/edit/users') Потребители
-                      li 
-                        a(href='/menu/add-product') Добави продукт
-                      li 
-                        a(href='/menu/remove-product') Премахни продукт
-                      li 
-                        a(href='/admin/add-offer') Добави оферта
-                      li.divider
-                    li
-                      a(href='/' + user.username + '/profile') Моят Профил
-                    li
-                      a(href='/' + user.username + '/settings') Настройки
-                    li.divider
-                    li
-                      a(href='/logout')
-                        | Изход
-              else
-                ul#nav-mobile.right.hide-on-med-and-down
-                    li
-                      a.btn(href='/login') Вход
-                    li
-                      a.btn(href='/register') Регистрация
+                a(href='/logout')
+                  | Изход
+                  i.material-icons exit_to_app
+        else
+          ul#nav-mobile.right.hide-on-med-and-down
+            li
+              a.btn(href='/login') Вход
+            li
+              a.btn(href='/register') Регистрация
+  div.divider.pink-line
+      

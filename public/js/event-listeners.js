@@ -23,4 +23,6 @@ $( document ).ready(function() {
     }
 
     $(".home-image-slider").slider();
+
+    $('.button-collapse').sideNav();
 });

@@ -63,8 +63,7 @@ nav .btn:focus {
 }
 
 .profile {
-   background-color: #f1a7af;
-   margin-top: 5%;
+   background-color: #60272a;
    padding-top: 5%;
    padding-bottom: 5%;
 }
@@ -98,7 +97,7 @@ nav .btn:focus {
 
 .view-settings {
     height: 150px;
-    background-color: #f1a7af;
+    background-color: #60272a;
     color: white;
     text-align: center;
 }
@@ -123,9 +122,15 @@ nav .btn:focus {
     margin-right: 10%;
 }
 
+.username {
+    margin-bottom: 3%;
+    margin-left: 18%;
+}
+
 .profile-image {
     width: 200px;
-    height: 200px;
+    margin-bottom: 3%;
+    margin-left: 33%;
 }
 
 .for-us {
@@ -180,4 +185,14 @@ nav .btn:focus {
 
 #main-menu li a.link:hover {
     color: #4e342e;
+}
+
+.pink-line {
+    width: 100%;
+    background-color: #f1a7af;
+    height: 5px;
+}
+
+.footer-copyright {
+    background-color: #f1a7af;
 }

@@ -11,7 +11,6 @@ module.exports = function(router) {
           .post('/register', (req, res) => controller.register(req, res))
           .post('/login', passport.authenticate('local', 
                                                 { 
-                                                    successRedirect: '/',
                                                     failureRedirect: '/login',
                                                     passReqToCallback: true,
                                                     failureFlash: true
