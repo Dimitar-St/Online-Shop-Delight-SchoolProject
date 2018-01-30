@@ -1,6 +1,7 @@
 const AdminController = require('../controllers/admin-controller.js'),
-      userService = require('../services/service-loader.js').getUserService(),
-      offerService = require('../services/service-loader.js').getOfferService();
+      serviceLoader = require('../services/service-loader.js'),
+      userService = serviceLoader.getUserService(),
+      offerService = serviceLoader.getOfferService();
 
 module.exports = function(router) {
     function isAdmin(req, res, next) {
