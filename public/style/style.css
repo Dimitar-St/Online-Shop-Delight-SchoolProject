@@ -213,3 +213,15 @@ ul#dropdown.dropdown-content {
     position: absolute;
      color: white; margin-right: 10%; margin-top: 3%; width: 20%;     
 }
+
+.current-offer {
+    width: 100%;
+    padding-left: 10%;
+    background-color: #4e342e;
+    margin-bottom: 0px;
+}
+
+.current-offer img {
+    width: 80%;
+    height: 700px;
+}
