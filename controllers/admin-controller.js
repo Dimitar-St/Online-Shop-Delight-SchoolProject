@@ -61,10 +61,11 @@ class AdminController {
 
     addOffer(req, res) {
         let firstImage = req.body.firstImage,
-            secondImage = req.body.secondImage; 
+            secondImage = req.body.secondImage,
+            description = req.body.description; 
 
         this.offerService
-            .addOffer(firstImage, secondImage)
+            .addOffer(firstImage, secondImage, description)
             .then(() => {
                 res.render('./admin/add-offer.pug', {
                         isAuthenticated: req.isAuthenticated(),

@@ -133,7 +133,7 @@ nav .btn:focus {
     margin-left: 33%;
 }
 
-.for-us {
+.for-us-panel {
     width: 1000px;
     margin-bottom: 50px;
     margin-top: 50px;
@@ -146,7 +146,7 @@ nav .btn:focus {
 }
 
 .row .logo-image-d {
-        background-color: #f1a7af;
+        background-color: #60272a;
 }
 
 .row .add-product-form {
@@ -195,4 +195,21 @@ nav .btn:focus {
 
 .footer-copyright {
     background-color: #f1a7af;
+}
+
+.for-us {
+    font-family: "Helvetica Neue", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+    font-size: 14px;
+    margin-top: .5em; 
+    color: #2d2d2d;
+}
+
+.profile-button {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+ul#dropdown.dropdown-content {
+    position: absolute;
+     color: white; margin-right: 10%; margin-top: 3%; width: 20%;     
 }

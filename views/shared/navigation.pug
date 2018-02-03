@@ -1,8 +1,11 @@
 mixin nav()
+  include ../admin/side-nav.pug
   nav(class="#4e342e brown darken-3")
     .nav-wrapper
       a.brand-logo(href='#')
         img(src="../../public/img/naslada_logo.png", alt="Delight")
+      if isAdmin
+         +side-nav()
       ul#main-menu.right.hide-on-med-and-down
         li
           a.link(href='/', style="color: white")
@@ -12,42 +15,15 @@ mixin nav()
             |МЕНЮ
         li
           a.link(href='/for-us', style="color: white")
-            |ЗА НАС
+            |ЗА НАs
         if isAuthenticated
           li
             a.link(href='/orders', style="color: white")
               | ПОРЪЧАЙ
-        if isAuthenticated
-          li
-            a.btn.dropdown-button.right(href='#', data-activates='dropdown', style="border-radius: 10px; margin-top: 6%;")
+          li.profile-enter
+            a.button-collapse.link.profile-button(href='#', data-activates='slide-out', style="display: inline-block; color: white;")
               = user.username
-              i.material-icons.right arrow_drop_down
-            ul#dropdown.dropdown-content(style="color: white; margin-left: 1%; margin-top: 3%;")
-              if isAdmin
-                li 
-                  a(href='/admin/edit/users') Потребители
-                   i.material-icons supervisor_account
-                li 
-                  a(href='/menu/add-product') Добави продукт
-                   i.material-icons add_box
-                li 
-                  a(href='/menu/remove-product') Премахни продукт
-                   i.material-icons delete_forever
-                li 
-                  a(href='/admin/add-offer') Добави оферта
-                    i.material-icons playlist_add
-                li.divider
-              li
-                a(href='/' + user.username + '/profile') Моят Профил
-                  i.material-icons account_circle
-              li
-                a(href='/' + user.username + '/settings') Настройки
-                  i.material-icons settings
-              li.divider
-              li
-                a(href='/logout')
-                  | Изход
-                  i.material-icons exit_to_app
+              i.material-icons.right(style="color: white") account_box
         else
           ul#nav-mobile.right.hide-on-med-and-down
             li

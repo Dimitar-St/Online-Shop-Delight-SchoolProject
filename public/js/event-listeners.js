@@ -22,7 +22,14 @@ $( document ).ready(function() {
         Materialize.toast(message, 4000, 'green');
     }
 
+    $('.collapsible').collapsible();
+
     $(".home-image-slider").slider();
 
-    $('.button-collapse').sideNav();
+    $('.button-collapse').sideNav({
+        menuWidth: 400,
+        closeOnClick: true,
+        edge: 'right', // <--- CHECK THIS OUT
+      }
+    );
 });

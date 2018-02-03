@@ -8,7 +8,8 @@ const offersSchema = new Schema({
     },
     secondImage: {
         type: String,
-    }
+    },
+    desciption: String
 });
 
 mongoose.model('Offer', offersSchema);

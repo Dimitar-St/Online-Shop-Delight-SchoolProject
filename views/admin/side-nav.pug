@@ -1,0 +1,44 @@
+mixin side-nav()
+  ul#slide-out.side-nav
+      li
+        .user-view
+          .background
+            img(src= user.profilePic)
+          a(href='#!user')
+            img.circle(src= user.profilePic)
+          a(href='#!name')
+            span.white-text.name 
+              = user.username
+          a(href='#!email')
+            span.white-text.email 
+              = user.email
+      if isAdmin
+        li
+          a(href='#!') АДМИНИСТРАТОРСКИ ПАНЕЛ
+        li.divider
+        li 
+          a(href='/admin/edit/users') Потребители
+           i.material-icons supervisor_account
+        li 
+          a(href='/menu/add-product') Добави продукт
+           i.material-icons add_box
+        li 
+          a(href='/menu/remove-product') Премахни продукт
+           i.material-icons delete_forever
+        li 
+          a(href='/admin/add-offer') Добави оферта
+            i.material-icons playlist_add
+        li.divider
+      li 
+        a ПОТРБИТЕЛСКИ ПАНЕЛ
+      li.divider
+      li
+        a(href='/' + user.username + '/profile') Моят Профил
+          i.material-icons account_circle
+      li
+        a(href='/' + user.username + '/settings') Настройки
+          i.material-icons settings
+      li
+        a(href='/logout')
+          | Изход
+          i.material-icons exit_to_app
