@@ -11,7 +11,7 @@ module.exports = function(router) {
          res.redirect('/login');
        }
     }
-    
+
     let controller = new UserController(userService, orderService);
 
     router.get('/:username/profile', isAuthenticated, (req, res) => controller.loadProfilePage(req, res))

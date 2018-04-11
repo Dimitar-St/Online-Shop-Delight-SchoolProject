@@ -1,7 +1,8 @@
 class AdminController {
-    constructor(userService, offerService) {
+    constructor(userService, offerService, ordersService) {
         this.userService = userService;
         this.offerService = offerService;
+        this.ordersService = ordersService;
     }
     
     getAllUser(req, res) {
@@ -57,6 +58,19 @@ class AdminController {
                         user: req.user,
                         isAdmin: true
                     });
+    }
+
+    loadOrdersAdminPage(req , res) {
+        return this.ordersService
+                   .getAllOrders()
+                   .then((orders) => {
+                        res.render('admin/orders', {
+                            isAuthenticated: req.isAuthenticated(),
+                            user: req.user,
+                            isAdmin: this.userService.isAdmin(req.user),
+                            orders: orders
+                        });
+                   });
     }
 
     addOffer(req, res) {

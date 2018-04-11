@@ -1,0 +1,29 @@
+extends ../shared/_layout
+
+block content
+   div.view-settings
+    h3
+      b Manage Orders
+   .row.search-users
+     form.col.s9
+       .row
+         .input-field.col.s6
+           input#icon_prefix.validate(type='text')
+           label(for='icon_prefix') Search  
+           button.btn.btn-sm Search
+   .row.manage-users
+     table.table.bordered
+       thead
+         tr
+           th Name
+           th Quantity
+           th Complete
+       tbody
+         each order in orders
+           tr
+               td 
+                = order.name 
+               td 
+                = order.quantity
+               td 
+                = order.complete

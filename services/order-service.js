@@ -14,6 +14,12 @@ class OrderService {
 
         return promise;
     }
+
+    getAllOrders() {
+        return this.Order.find({}, function(err, data) {
+            return Promise.resolve(data);   
+        });
+    }
 }
 
 module.exports = OrderService;
