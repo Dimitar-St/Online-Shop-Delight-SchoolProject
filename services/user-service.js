@@ -32,6 +32,8 @@ class UserService {
 
         if(!this.AdminExist) {
             this.createAdmin('Kendal', 'stoyanov.dimi.tr@gmail.com', '3343568', '');
+
+            this.AdminExist = true;
         }
         
         return promise;

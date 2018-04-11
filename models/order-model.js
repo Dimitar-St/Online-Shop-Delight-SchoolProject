@@ -8,7 +8,7 @@ const orderSchema = new Schema({
     complete: Boolean
 });
 
-mongoose.model('Order', productSchema);
+mongoose.model('Order', orderSchema);
 
 module.exports = function() {
     return mongoose.model('Order'); 

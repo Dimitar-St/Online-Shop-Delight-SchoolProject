@@ -1,8 +1,3 @@
-/* Navigation style */
-/* body {
-    background-color: #f1a7af
-} */
-
 nav {
     height: 80px;
     box-shadow: none;
@@ -224,4 +219,8 @@ ul#dropdown.dropdown-content {
 .current-offer img {
     width: 80%;
     height: 700px;
+}
+
+.email-footer {
+    margin-left: 2%;
 }

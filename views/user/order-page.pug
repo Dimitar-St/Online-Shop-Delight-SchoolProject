@@ -6,11 +6,11 @@ block content
           b Поръчай продукт
     .row(style="margin-top: 40px;")
       .col.s10.m8.l6.offset-l3.offset-m2.offset-s1
-        form#login.form-horizontal(method="POST", action='/order')
+        form#login.form-horizontal(method="POST", action='/orders')
           .form-group
             label.cols-sm-2.control-label(for='productName' ) Име на продукта
             .cols-sm-10
-              input#username.form-control(type='text', name='productName', placeholder='Име на продукта' autofocus)
+              input#username.form-control(type='text', name='name', placeholder='Име на продукта' autofocus)
           .form-group
             label.cols-sm-2.control-label(for='quantity') Количество
             .cols-sm-10
